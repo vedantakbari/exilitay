@@ -2,526 +2,547 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exilitay's Graphics - Redefining Assetto Corsa Visuals</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <title>Exilitay Graphics | Premium Visuals</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        /* Rich Color Scheme & Variables */
         :root {
-            --primary-color: #ff4848;
-            --primary-hover: #ff2d2d;
-            --primary-soft: rgba(255, 72, 72, 0.1);
-            --secondary-color: #0051ff;
-            --secondary-soft: rgba(0, 81, 255, 0.1);
-            --accent-color: #00cc99;
-            --accent-soft: rgba(0, 204, 153, 0.1);
-            --dark-color: #0e0e16;
-            --dark-medium: #13131f;
-            --dark-light: #1e1e2f;
-            --light-color: #ffffff;
-            --text-color: #f0f0f0;
-            --text-secondary: #b8b8c8;
-            --glass-bg: rgba(30, 30, 47, 0.65);
-            --glass-light: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --glass-blur: blur(10px);
-            --card-bg: rgba(30, 30, 47, 0.8);
-            --card-hover: rgba(40, 40, 65, 0.9);
-            --animation-timing: 0.4s;
-            --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-            --hover-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
-            --border-radius: 12px;
-        }
-
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sora:wght@300;400;500;600;700&display=swap');
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes gradientFlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
-        @keyframes shimmer {
-            0% { background-position: -100% 0; }
-            100% { background-position: 200% 0; }
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.03); }
-            100% { transform: scale(1); }
-        }
-
-        @keyframes borderGlow {
-            0% { box-shadow: 0 0 0 rgba(255, 72, 72, 0); }
-            50% { box-shadow: 0 0 10px rgba(255, 72, 72, 0.5); }
-            100% { box-shadow: 0 0 0 rgba(255, 72, 72, 0); }
+            --primary: #a845f7;
+            --primary-light: #bf6bff;
+            --primary-dark: #8741d6;
+            --primary-gradient: linear-gradient(135deg, #a845f7, #4dc4ff);
+            --primary-gradient-alt: linear-gradient(90deg, #a845f7, #4dc4ff);
+            --accent: #ff3399;
+            --dark: #0f0f0f;
+            --darker: #080808;
+            --darkest: #050505;
+            --light: #ffffff;
+            --light-gray: rgba(255, 255, 255, 0.7);
+            --muted: rgba(255, 255, 255, 0.5);
+            --discord: #5865f2;
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
+            --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 10px 20px rgba(0, 0, 0, 0.15);
+            --shadow-lg: 0 20px 30px rgba(0, 0, 0, 0.2);
+            --shadow-primary: 0 8px 25px rgba(168, 69, 247, 0.35);
+            --transition-fast: all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --transition-slow: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+            --font-size-xs: 0.75rem;
+            --font-size-sm: 0.875rem;
+            --font-size-md: 1rem;
+            --font-size-lg: 1.125rem;
+            --font-size-xl: 1.25rem;
+            --font-size-2xl: 1.5rem;
+            --font-size-3xl: 2rem;
+            --font-size-4xl: 2.5rem;
+            --font-size-5xl: 3rem;
+            --font-size-6xl: 4rem
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            transition: all var(--animation-timing) ease;
+            font-family: var(--font-main)
+        }
+
+        html {
             scroll-behavior: smooth;
+            font-size: 16px;
+            height: 100%;
+            overflow-x: hidden
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--dark-color);
-            background-image: url('https://images.unsplash.com/photo-1533106497176-45ae19e68ba2?ixlib=rb-4.0.3&auto=format&fit=crop&q=80&w=2000');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background-color: var(--dark);
+            color: var(--light);
+            line-height: 1.5;
             overflow-x: hidden;
-            position: relative;
+            background-image: radial-gradient(circle at 15% 50%, rgba(168, 69, 247, .08) 0, transparent 30%), radial-gradient(circle at 85% 30%, rgba(77, 196, 255, .08) 0, transparent 30%);
+            transition: filter .4s cubic-bezier(.25, .46, .45, .94);
+            will-change: filter;
+            height: 100%
         }
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(14, 14, 22, 0.75), rgba(14, 14, 22, 0.9));
-            z-index: -1;
+        .smoothscroll-wrapper {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-behavior: smooth;
+            perspective: 1px;
+            transform-style: preserve-3d;
+            perspective-origin: 0 0;
+            -webkit-overflow-scrolling: touch;
+            transition: filter .3s ease-out
         }
 
-        /* Typography Styling */
-        h1, h2, h3, h4 {
-            font-family: 'Sora', sans-serif;
-            margin-bottom: 1rem;
-            color: var(--light-color);
-            font-weight: 600;
-            line-height: 1.3;
+        #content {
+            transform-style: preserve-3d;
+            transition: filter .3s ease-out
         }
 
-        h1 {
-            font-size: 3.2rem;
-            letter-spacing: -0.5px;
-            margin-bottom: 1.5rem;
+        .is-scrolling #content {
+            filter: blur(3px)
         }
 
-        h2 {
-            font-size: 2.4rem;
-            color: var(--light-color);
-            position: relative;
-            display: inline-block;
-        }
-
-        h3 {
-            font-size: 1.6rem;
-        }
-
-        p {
-            margin-bottom: 1.2rem;
-            font-size: 1.05rem;
-            line-height: 1.8;
-            font-weight: 400;
-            color: var(--text-secondary);
-        }
-
-        strong {
-            color: var(--light-color);
-            font-weight: 600;
+        ::selection {
+            background-color: var(--primary);
+            color: var(--light)
         }
 
         .container {
-            width: 85%;
-            max-width: 1200px;
+            width: 100%;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 2rem;
             position: relative;
+            z-index: 5
         }
 
-        /* Enhanced Glass Effect Classes */
-        .glass {
-            background: var(--glass-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
+        header {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 95%;
+            max-width: 1400px;
+            height: 65px;
+            z-index: 100;
+            transition: var(--transition);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            background: rgba(15, 15, 15, .4);
+            border: 1px solid rgba(255, 255, 255, .05);
+            border-radius: 40px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, .15)
+        }
+
+        header.sticky {
+            background: rgba(8, 8, 8, .6);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, .25)
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            padding: 0 2rem;
+            transition: var(--transition)
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            text-decoration: none;
+            transform-style: preserve-3d;
+            transition: var(--transition)
+        }
+
+        .logo:hover {
+            transform: translateY(-3px) rotateX(5deg)
+        }
+
+        .logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-gradient);
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow-primary)
+        }
+
+        .logo-text {
+            font-size: var(--font-size-2xl);
+            font-weight: 800;
+            color: var(--light)
+        }
+
+        .logo-text span {
+            color: var(--primary)
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            height: 100%
+        }
+
+        .nav-button,
+        .nav-link {
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            margin: 0 1.25rem
+        }
+
+        .nav-link {
+            color: var(--light-gray);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: var(--transition-fast)
+        }
+
+        .nav-link:hover {
+            color: var(--light)
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0%;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: var(--transition-fast);
+            opacity: 0
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+            opacity: 1
+        }
+
+        .nav-button {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: var(--primary-gradient);
+            color: var(--light);
+            padding: 0 1.5rem;
+            border-radius: 20px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-primary);
             position: relative;
             overflow: hidden;
+            z-index: 1
         }
 
-        .glass::before {
+        .nav-button::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
-            width: 200%;
+            width: 100%;
             height: 100%;
-            background: linear-gradient(
-                to right,
-                transparent,
-                rgba(255, 255, 255, 0.05),
-                transparent
-            );
-            transform: rotate(30deg);
-            animation: shimmer 8s ease-in-out infinite;
-            pointer-events: none;
+            background: var(--primary-gradient-alt);
+            transition: var(--transition);
+            z-index: -1
         }
 
-        /* Modern Header with Dynamic Glass Effect */
-        header {
-            background-color: rgba(14, 14, 22, 0.8);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            padding: 1.2rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--glass-border);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        .nav-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(168, 69, 247, .4)
         }
 
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .nav-button:hover::before {
+            left: 0
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            font-family: 'Sora', sans-serif;
-            color: var(--light-color);
-            display: flex;
-            align-items: center;
-            position: relative;
+        .nav-button i {
+            font-size: 1.2rem;
+            margin-right: .25rem
         }
 
-        .logo span {
-            color: var(--primary-color);
-            position: relative;
+        .menu-toggle {
+            display: none;
+            background: 0 0;
+            border: none;
+            color: var(--light);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 101
         }
 
-        .logo span::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--primary-color);
-            animation: borderGlow 3s infinite;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin-left: 2rem;
-        }
-
-        nav ul li a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            transition: all 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--light-color);
-            background: var(--glass-light);
-        }
-
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--primary-color);
-            transition: all 0.3s;
-            transform: translateX(-50%);
-        }
-
-        nav ul li a:hover::after {
-            width: 80%;
-        }
-
-        /* Dynamic Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
-            overflow: hidden;
+            padding: 8rem 0 5rem;
+            overflow: hidden
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            width: 300px;
-            height: 300px;
-            background: radial-gradient(circle, var(--primary-soft) 0%, transparent 70%);
-            top: 10%;
-            left: 5%;
-            filter: blur(50px);
-            animation: float 15s infinite ease-in-out;
-            z-index: 0;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxkZWZzPgogICAgPHBhdHRlcm4gaWQ9InBhdHRlcm4iIHg9IjAiIHk9IjAiIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgcGF0dGVyblRyYW5zZm9ybT0icm90YXRlKDQ1KSI+CiAgICAgIDxjaXJjbGUgY3g9IjIiIGN5PSIyIiByPSIxIiBmaWxsPSIjYTg0NWY3IiBmaWxsLW9wYWNpdHk9IjAuMDMiLz4KICAgIDwvcGF0dGVybj4KICA8L2RlZnM+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPgo8L3N2Zz4=);
+            background-size: 20px 20px;
+            opacity: .4;
+            z-index: 1
         }
 
-        .hero::after {
-            content: '';
+        .particles {
             position: absolute;
-            width: 250px;
-            height: 250px;
-            background: radial-gradient(circle, var(--secondary-soft) 0%, transparent 70%);
-            bottom: 10%;
-            right: 5%;
-            filter: blur(50px);
-            animation: float 12s infinite ease-in-out reverse;
-            z-index: 0;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: var(--primary);
+            opacity: .3;
+            pointer-events: none;
+            z-index: 1
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100px);
+                opacity: 0
+            }
+
+            50% {
+                opacity: .5
+            }
+
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0
+            }
         }
 
         .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 3rem;
-            background: rgba(14, 14, 22, 0.75);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border-radius: var(--border-radius);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--box-shadow);
-            max-width: 800px;
-            margin: 0 auto;
-            animation: fadeIn 1s ease-out forwards;
-            position: relative;
-            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-        }
-
-        .hero-content::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            right: -2px;
-            bottom: -2px;
-            left: -2px;
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color), var(--accent-color), var(--primary-color));
-            background-size: 400% 400%;
-            z-index: -1;
-            filter: blur(10px);
-            opacity: 0.7;
-            animation: gradientFlow 15s ease infinite;
-            border-radius: var(--border-radius);
-        }
-
-        .hero-content h1 {
-            margin-bottom: 1.5rem;
             position: relative;
+            z-index: 5;
+            max-width: 900px;
+            margin: 0 auto
         }
 
-        .hero-content h1::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: var(--primary-color);
-            border-radius: 3px;
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            background: rgba(168, 69, 247, .1);
+            border: 1px solid rgba(168, 69, 247, .2);
+            color: var(--primary-light);
+            padding: .5rem 1rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: var(--font-size-sm);
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, .1)
         }
 
-        .hero-content p {
-            font-size: 1.3rem;
+        .hero-badge i {
+            font-size: var(--font-size-md)
+        }
+
+        .hero-title {
+            font-size: var(--font-size-6xl);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 10px 20px rgba(0, 0, 0, .1)
+        }
+
+        .hero-description {
+            font-size: var(--font-size-xl);
+            color: var(--light-gray);
             max-width: 700px;
-            margin: 1.5rem auto 2.5rem;
-            color: var(--text-secondary);
+            margin-bottom: 3rem
         }
 
-        /* Stylish Button */
-        .btn {
-            display: inline-block;
-            background: var(--primary-color);
-            color: var(--light-color);
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 4rem
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+            background: var(--primary-gradient);
+            color: var(--light);
             padding: 1rem 2.5rem;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            text-decoration: none;
-            font-size: 1rem;
+            border-radius: 50px;
             font-weight: 600;
-            letter-spacing: 0.5px;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--shadow-primary);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(255, 72, 72, 0.3);
-            transition: all 0.3s ease;
             z-index: 1;
+            font-size: var(--font-size-lg)
         }
 
-        .btn:hover {
-            background: var(--primary-hover);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(255, 72, 72, 0.4);
-        }
-
-        .btn::after {
+        .btn-primary::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: all 0.5s ease;
-            z-index: -1;
+            background: var(--primary-gradient-alt);
+            transition: var(--transition);
+            z-index: -1
         }
 
-        .btn:hover::after {
-            left: 100%;
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(168, 69, 247, .4)
         }
 
-        /* Modern Section Styling */
-        section {
-            padding: 7rem 0;
+        .btn-primary:hover::before {
+            left: 0
+        }
+
+        .btn-primary i {
+            font-size: 1.2rem
+        }
+
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid rgba(255, 255, 255, .1);
+            color: var(--light);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            cursor: pointer;
+            font-size: var(--font-size-lg)
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, .1);
+            transform: translateY(-5px)
+        }
+
+        .hero-games {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            justify-content: center
+        }
+
+        .game-badge {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            color: var(--muted);
+            font-size: var(--font-size-sm);
+            transition: var(--transition)
+        }
+
+        .game-badge:hover {
+            color: var(--light)
+        }
+
+        .game-badge i {
+            font-size: 1.5rem
+        }
+
+        .features {
+            padding: 10rem 0;
             position: relative;
-            overflow: hidden;
+            overflow: hidden
         }
 
-        .accent-bg {
-            position: absolute;
-            width: 400px;
-            height: 400px;
-            border-radius: 50%;
-            filter: blur(80px);
-            opacity: 0.15;
-            z-index: -1;
-            pointer-events: none;
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+            position: relative
         }
 
-        .accent-1 {
-            background: var(--primary-color);
-            top: 10%;
-            left: -10%;
-        }
-
-        .accent-2 {
-            background: var(--secondary-color);
-            bottom: 20%;
-            right: -10%;
-        }
-
-        .accent-3 {
-            background: var(--accent-color);
-            bottom: -10%;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .glass-section {
-            position: relative;
-            margin: 3rem 0;
-            padding: 2.5rem;
-            border-radius: var(--border-radius);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            box-shadow: var(--box-shadow);
-            transform: translateY(30px);
-            opacity: 0;
-            transition: all 0.8s ease;
-        }
-
-        .glass-section.visible {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .glass-section:hover {
-            box-shadow: var(--hover-shadow);
+        .section-subtitle {
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+            display: inline-block;
+            background: rgba(168, 69, 247, .1);
+            padding: .5rem 1rem;
+            border-radius: 4px;
+            font-size: var(--font-size-sm)
         }
 
         .section-title {
-            text-align: center;
-            margin-bottom: 3.5rem;
+            font-size: var(--font-size-4xl);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
             position: relative;
+            display: inline-block
         }
 
-        .section-title h2 {
-            display: inline-block;
-            position: relative;
-            padding-bottom: 1rem;
-            z-index: 2;
-        }
-
-        .section-title h2::after {
+        .section-title::after {
             content: '';
             position: absolute;
-            width: 100px;
-            height: 3px;
-            background: var(--primary-color);
-            bottom: 0;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            border-radius: 3px;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-gradient);
+            border-radius: 2px
         }
 
-        .section-title::before {
-            content: '';
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: radial-gradient(circle, var(--primary-soft) 0%, transparent 70%);
-            top: -100px;
-            left: 50%;
-            transform: translateX(-50%);
-            filter: blur(30px);
-            z-index: 1;
+        .section-description {
+            font-size: var(--font-size-lg);
+            color: var(--light-gray);
+            max-width: 600px;
+            margin: 0 auto
         }
 
-        /* Enhanced Card Design */
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-top: 2.5rem;
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem
         }
 
         .feature-card {
-            background: var(--card-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border: 1px solid var(--glass-border);
-            border-radius: var(--border-radius);
-            padding: 2rem;
-            margin-bottom: 2.5rem;
-            box-shadow: var(--box-shadow);
-            flex: 0 0 calc(33.333% - 1.5rem);
-            transform: translateY(30px);
-            opacity: 0;
-            transition: all 0.5s ease;
-            overflow: hidden;
+            background: rgba(255, 255, 255, .02);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, .05);
             position: relative;
+            overflow: hidden;
+            z-index: 1;
+            height: 100%;
+            display: flex;
+            flex-direction: column
         }
 
         .feature-card::before {
@@ -530,718 +551,1361 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 5px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            opacity: 0.8;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card.visible {
-            transform: translateY(0);
-            opacity: 1;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(168, 69, 247, .1) 0, transparent 100%);
+            opacity: 0;
+            transition: var(--transition);
+            z-index: -1
         }
 
         .feature-card:hover {
             transform: translateY(-10px);
-            background: var(--card-hover);
-            box-shadow: var(--hover-shadow);
+            box-shadow: var(--shadow-lg);
+            border-color: rgba(168, 69, 247, .2)
         }
 
         .feature-card:hover::before {
-            height: 7px;
-            opacity: 1;
+            opacity: 1
         }
 
-        .feature-card h3 {
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-gradient);
+            border-radius: 20px;
             margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-            color: var(--light-color);
-            z-index: 1;
+            box-shadow: var(--shadow-primary);
+            font-size: 2rem;
+            color: var(--light);
+            transition: var(--transition)
         }
 
-        .feature-card h3::before {
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg)
+        }
+
+        .feature-title {
+            font-size: var(--font-size-2xl);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--light)
+        }
+
+        .feature-description {
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+            font-size: var(--font-size-md);
+            flex-grow: 1
+        }
+
+        .feature-more {
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: var(--font-size-sm);
+            align-self: flex-start
+        }
+
+        .feature-more i {
+            transition: var(--transition)
+        }
+
+        .feature-more:hover {
+            color: var(--primary-light)
+        }
+
+        .feature-more:hover i {
+            transform: translateX(5px)
+        }
+
+        .games {
+            padding: 10rem 0;
+            position: relative;
+            overflow: hidden;
+            background-color: var(--darker)
+        }
+
+        .games::before {
             content: '';
             position: absolute;
-            bottom: -5px;
+            top: 0;
             left: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--primary-color);
-            border-radius: 3px;
-            transition: width 0.3s ease;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(45deg, rgba(5, 5, 5, .5) 25%, transparent 25%), linear-gradient(-45deg, rgba(5, 5, 5, .5) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, rgba(5, 5, 5, .5) 75%), linear-gradient(-45deg, transparent 75%, rgba(5, 5, 5, .5) 75%);
+            background-size: 20px 20px;
+            opacity: .2;
+            z-index: 1
         }
 
-        .feature-card:hover h3::before {
-            width: 100%;
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 2
         }
 
-        /* Rich Image Placeholders */
-        .image-placeholder {
-            width: 100%;
-            height: 350px;
-            background: var(--card-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border-radius: var(--border-radius);
-            margin: 2.5rem 0;
+        .game-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: var(--transition)
+        }
+
+        .game-card {
+            background: rgba(255, 255, 255, .02);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, .05);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            color: var(--text-secondary);
-            text-align: center;
-            padding: 1rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--box-shadow);
-            border: 1px solid var(--glass-border);
-            transform: translateY(30px);
-            opacity: 0;
-            transition: all 0.6s ease;
+            height: 180px
         }
 
-        .image-placeholder.visible {
-            transform: translateY(0);
-            opacity: 1;
+        .game-card-link:hover .game-card {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, .05);
+            border-color: rgba(168, 69, 247, .2);
+            box-shadow: var(--shadow-lg)
         }
 
-        .image-placeholder:hover {
-            box-shadow: var(--hover-shadow);
-        }
-
-        /* Enhanced Table Design */
-        .table-container {
-            position: relative;
-            margin: 2.5rem 0;
-            padding: 3px;
-            border-radius: var(--border-radius);
-            background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
-            box-shadow: var(--box-shadow);
-            transform: translateY(30px);
-            opacity: 0;
-            transition: all 0.6s ease;
-        }
-
-        .table-container.visible {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        .comparison-table {
-            width: 100%;
-            border-collapse: separate;
-            border-spacing: 0;
-            background: var(--card-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            border-radius: calc(var(--border-radius) - 3px);
-            overflow: hidden;
-        }
-
-        .comparison-table th,
-        .comparison-table td {
-            padding: 1.2rem 1.5rem;
-            text-align: left;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .comparison-table th {
-            background: rgba(14, 14, 22, 0.8);
-            color: var(--light-color);
-            font-weight: 600;
-            font-size: 1rem;
-            letter-spacing: 0.5px;
-        }
-
-        .comparison-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .comparison-table tr {
-            transition: all 0.3s ease;
-        }
-
-        .comparison-table tr:hover {
-            background-color: rgba(255, 255, 255, 0.05);
-        }
-
-        .comparison-table td:first-child {
-            font-weight: 600;
-            color: var(--primary-color);
-        }
-
-        /* Enhanced Quote Style */
-        blockquote {
-            background: var(--card-bg);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            padding: 2.5rem;
-            margin: 2.5rem 0;
-            font-style: italic;
-            position: relative;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            border-left: 5px solid var(--primary-color);
-            transform: translateY(30px);
-            opacity: 0;
-            transition: all 0.5s ease;
-        }
-
-        blockquote.visible {
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-        blockquote:hover {
-            box-shadow: var(--hover-shadow);
-        }
-
-        blockquote::before {
-            content: '"';
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            font-size: 5rem;
-            color: rgba(255, 72, 72, 0.1);
-            font-family: Georgia, serif;
-        }
-
-        blockquote p {
-            margin-bottom: 0;
-            line-height: 1.8;
-            font-size: 1.1rem;
-            position: relative;
-            z-index: 1;
-            color: var(--text-secondary);
-        }
-
-        /* Modern Divider */
-        .divider {
-            height: 1px;
-            width: 100%;
-            margin: 3rem 0;
-            background: linear-gradient(90deg, transparent, var(--glass-border), transparent);
-            position: relative;
-        }
-
-        .divider::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 1px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-        }
-
-        /* Badge */
-        .badge {
-            display: inline-block;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            color: var(--light-color);
-            padding: 0.3rem 1rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Premium Footer */
-        footer {
-            background: rgba(14, 14, 22, 0.9);
-            backdrop-filter: var(--glass-blur);
-            -webkit-backdrop-filter: var(--glass-blur);
-            padding: 4rem 0 2rem;
-            position: relative;
-            overflow: hidden;
-            border-top: 1px solid var(--glass-border);
-        }
-
-        footer::before {
+        .game-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--primary-color), var(--secondary-color), transparent);
+            height: 5px;
+            background: var(--primary-gradient);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .4s ease;
+            z-index: 3
+        }
+
+        .game-card-link:hover .game-card::before {
+            transform: scaleX(1)
+        }
+
+        .game-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(168, 69, 247, .1);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            color: var(--primary);
+            font-size: 1.5rem;
+            transition: var(--transition);
+            flex-shrink: 0
+        }
+
+        .game-card-link:hover .game-card .game-icon {
+            background: var(--primary-gradient);
+            color: var(--light);
+            transform: scale(1.1)
+        }
+
+        .game-title {
+            font-size: var(--font-size-md);
+            font-weight: 700;
+            color: var(--light);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            hyphens: auto;
+            line-height: 1.2
+        }
+
+        .about {
+            padding: 10rem 0;
+            position: relative;
+            overflow: hidden
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2
+        }
+
+        .about-text {
+            background: rgba(255, 255, 255, .02);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            border: 1px solid rgba(255, 255, 255, .05);
+            box-shadow: var(--shadow-lg);
+            position: relative
+        }
+
+        .about-text p {
+            color: var(--light-gray);
+            font-size: var(--font-size-lg);
+            line-height: 1.8;
+            margin-bottom: 2rem
+        }
+
+        .about-quote {
+            background: rgba(168, 69, 247, .05);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin-top: 2rem;
+            position: relative
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 2.5rem;
+            color: rgba(168, 69, 247, .2)
+        }
+
+        .about-quote blockquote {
+            font-size: var(--font-size-lg);
+            color: var(--light);
+            font-style: italic;
+            margin-bottom: 1.5rem
+        }
+
+        .quote-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            font-weight: 700;
+            font-size: var(--font-size-lg)
+        }
+
+        .author-info h4 {
+            font-size: var(--font-size-md);
+            margin-bottom: .25rem
+        }
+
+        .author-info p {
+            color: var(--muted);
+            font-size: var(--font-size-sm);
+            margin: 0
+        }
+
+        .discord {
+            padding: 10rem 0;
+            position: relative;
+            overflow: hidden
+        }
+
+        .discord-card {
+            background: rgba(88, 101, 242, .05);
+            border: 1px solid rgba(88, 101, 242, .1);
+            border-radius: var(--radius-lg);
+            padding: 4rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            z-index: 2
+        }
+
+        .discord-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url(data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNzEgNTUiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxwYXRoIGQ9Ik02MC4xMDQ4IDQuODk5NTdDNTUuNTc1MiAyLjg1NjY0IDUwLjcwMzQgMS4zODAxNyA0NS42MTQzIDAuNUMzOC41NjUzIDQuNTM0MDcgMzQuNzM5OSA5LjE0NzExIDM0LjczOTkgOS4xNDcxMUMzNC43Mzk5IDkuMTQ3MTEgMjUuNjgwMSA0Ljg2NDEgMTguNTg1NCAwLjVDMTMuNDk2MyAxLjM4MDE3IDguNjI0NDggMi44NTY2NCA0LjA5NTIxIDQuODk5NTdDMC41OTEzMDggMTIuMjA3NyAtMC41MjY2MzMgMjIuMDgyOCAwLjE1NTYzMyA2Ny4yMTk1QzYuNjM3NTcgNzEuODM1OSAxMi44MjggNzQuODgyMiAxOC45OTA4IDc3LjA3MTRDMjMuMDQ0OSA3My42NTU2IDI2LjY2NzkgNjkuODIyNCAyOS44MTE0IDY1LjY0NkMyNS44MjE4IDY0LjA5OTEgMjIuMDMxOCA2Mi4wODUyIDE4LjQ5NjYgNTkuNjIzNEMxOS40NzU1IDU4LjkwMTUgMjAuNDMyNiA1OC4xMzc4IDIxLjM0MTQgNTcuMzcwOEMyOC41MzIzIDYwLjc5MjIgMzYuNDY4NiA2Mi41NzE0IDQ0LjYwNDggNjIuNTcxNEM1Mi43MjQ3IDYyLjU3MTQgNjAuNjc3NyA2MC43OTIyIDY3Ljg2NTMgNTcuMzcwOEM2OC43NzQxIDU4LjEzNzggNjkuNzI4MyA1OC45MDE1IDcwLjcwOTIgNTkuNjIzNEM2Ny4xNzEgNjIuMDg1MiA2My4zNzY3IDY0LjA5OTEgNTkuMzk0NCA2NS42NDZDNjIuNTM0NyA2OS44MjI0IDY2LjE1NDUgNzMuNjU1NiA3MC4yMTk1IDc3LjA3MTRDNzYuMzgyMyA3NC44ODIyIDgyLjU3MDcgNzEuODM1OSA4OS4wNDg5IDY3LjIxOTVDODkuNzMxMiAyMi4wODI4IDg4LjYxMzIgMTIuMjA3NyA4NS4xMDk0IDQuODk5NTdaIiBmaWxsPSJ1cmwoI3BhaW50MF9saW5lYXIpIiBmaWxsLW9wYWNpdHk9IjAuMDUiLz4KPGRlZnM+CjxsaW5lYXJHcmFkaWVudCBpZD0icGFpbnQwX2xpbmVhciIgeDE9IjQ0LjYwMjEiIHkxPSIwLjUiIHgyPSI0NC42MDIxIiB5Mj0iNzcuMDcxNCIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjNTg2NUYyIi8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzU4NjVGMiIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjwvc3ZnPgo=);
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 300px;
+            opacity: .5;
+            z-index: -1
+        }
+
+        .discord-title {
+            font-size: var(--font-size-4xl);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--discord)
+        }
+
+        .discord-description {
+            font-size: var(--font-size-lg);
+            color: var(--light-gray);
+            max-width: 600px;
+            margin: 0 auto 2rem
+        }
+
+        .member-counts {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2.5rem
+        }
+
+        .member-count {
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+            background-color: rgba(88, 101, 242, .1);
+            color: var(--discord);
+            font-weight: 600;
+            padding: .75rem 1.5rem;
+            border-radius: 100px;
+            margin-bottom: .5rem
+        }
+
+        .member-total {
+            font-size: var(--font-size-sm);
+            color: var(--light-gray)
+        }
+
+        .discord-count-loading {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border: 2px solid rgba(88, 101, 242, .2);
+            border-radius: 50%;
+            border-top-color: var(--discord);
+            animation: spin 1s infinite linear
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg)
+            }
+        }
+
+        .pulse {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: var(--discord);
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: pulse-animation 1.5s infinite ease-in-out
+        }
+
+        @keyframes pulse-animation {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: .5;
+                transform: scale(.9)
+            }
+        }
+
+        .discord-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: .75rem;
+            background: var(--discord);
+            color: var(--light);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(88, 101, 242, .35);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            font-size: var(--font-size-lg)
+        }
+
+        .discord-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--discord), #7289da);
+            transition: var(--transition);
+            z-index: -1
+        }
+
+        .discord-btn:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(88, 101, 242, .4)
+        }
+
+        .discord-btn:hover::before {
+            left: 0
+        }
+
+        .discord-btn i {
+            font-size: 1.4rem
+        }
+
+        footer {
+            background-color: var(--darker);
+            padding: 5rem 0 2rem;
+            border-top: 1px solid rgba(255, 255, 255, .05)
         }
 
         .footer-content {
             display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 1;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 3rem
         }
 
-        .social-icons {
-            display: flex;
-            margin-bottom: 2rem;
+        .footer-branding {
+            flex: 0 0 300px
         }
 
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            background: var(--dark-light);
-            border-radius: 50%;
+        .footer-logo {
             display: flex;
-            justify-content: center;
             align-items: center;
-            margin: 0 0.8rem;
-            color: var(--light-color);
+            gap: .75rem;
             text-decoration: none;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1.5rem
         }
 
-        .social-icon:hover {
-            background: var(--primary-color);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        .footer-logo-icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-gradient);
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            box-shadow: var(--shadow-primary)
         }
 
-        footer p {
-            color: var(--text-secondary);
+        .footer-logo-text {
+            font-size: var(--font-size-xl);
+            font-weight: 800;
+            color: var(--light)
+        }
+
+        .footer-logo-text span {
+            color: var(--primary)
+        }
+
+        .footer-description {
+            color: var(--light-gray);
+            margin-bottom: 1.5rem;
+            font-size: var(--font-size-md)
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1rem
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .05);
+            color: var(--light-gray);
+            transition: var(--transition)
+        }
+
+        .social-link:hover {
+            background: var(--primary-gradient);
+            color: var(--light);
+            transform: translateY(-3px)
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column
+        }
+
+        .footer-links h3 {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--light)
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0
+        }
+
+        .footer-links li {
+            margin-bottom: .75rem
+        }
+
+        .footer-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: var(--transition);
+            font-size: var(--font-size-md);
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+            transform: translateX(5px)
+        }
+
+        .footer-links a i {
+            font-size: .75rem;
+            opacity: 0;
+            transition: var(--transition)
+        }
+
+        .footer-links a:hover i {
+            opacity: 1
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, .05);
+            padding-top: 2rem;
+            margin-top: 3rem;
             text-align: center;
+            color: var(--muted);
+            font-size: var(--font-size-sm)
         }
 
-        /* Scroll Progress Bar */
-        .scroll-progress {
+        @keyframes fadeIn {
+            from {
+                opacity: 0
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(-30px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0)
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn .8s ease forwards
+        }
+
+        .slide-up {
+            opacity: 0;
+            animation: slideUp .8s ease forwards
+        }
+
+        .slide-right {
+            opacity: 0;
+            animation: slideRight .8s ease forwards
+        }
+
+        .delay-1 {
+            animation-delay: .1s
+        }
+
+        .delay-2 {
+            animation-delay: .2s
+        }
+
+        .delay-3 {
+            animation-delay: .3s
+        }
+
+        .delay-4 {
+            animation-delay: .4s
+        }
+
+        .delay-5 {
+            animation-delay: .5s
+        }
+
+        .delay-6 {
+            animation-delay: .6s
+        }
+
+        .motion-blur-trail {
             position: fixed;
             top: 0;
             left: 0;
-            width: 0%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            z-index: 1001;
-            transition: width 0.1s;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9998;
+            opacity: 0;
+            transition: opacity .3s ease
         }
 
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
+        .motion-blur-trail.active {
+            opacity: 1
         }
 
-        ::-webkit-scrollbar-track {
-            background: var(--dark-color);
+        .motion-blur-ghost {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            pointer-events: none;
+            will-change: transform, opacity
         }
 
-        ::-webkit-scrollbar-thumb {
-            background: var(--dark-light);
-            border-radius: 5px;
+        .cursor-inner,
+        .cursor-outer {
+            position: fixed;
+            top: 0;
+            left: 0;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transform: translate(-50%, -50%);
+            transition: width .2s cubic-bezier(.25, .46, .45, .94), height .2s cubic-bezier(.25, .46, .45, .94), background-color .2s cubic-bezier(.25, .46, .45, .94), border-color .2s cubic-bezier(.25, .46, .45, .94);
+            display: none;
+            will-change: transform, width, height
         }
 
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--primary-color);
+        .cursor-outer {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--primary);
+            background: 0 0
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .feature-card {
-                flex: 0 0 calc(50% - 1.5rem);
+        .cursor-inner {
+            width: 8px;
+            height: 8px;
+            background: var(--primary)
+        }
+
+        .cursor-outer.cursor-hover {
+            width: 60px;
+            height: 60px;
+            border-color: var(--primary-light);
+            background: rgba(168, 69, 247, .1)
+        }
+
+        .cursor-inner.cursor-hover {
+            width: 12px;
+            height: 12px;
+            background: var(--light)
+        }
+
+        @media (max-width:1200px) {
+            :root {
+                --font-size-6xl: 3.5rem;
+                --font-size-5xl: 2.75rem;
+                --font-size-4xl: 2.25rem
             }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-            
+
+            .about,
+            .discord,
+            .features,
+            .games,
             .hero {
-                height: 90vh;
+                padding: 7rem 0
+            }
+
+            header {
+                width: 90%
+            }
+
+            .games-grid {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr))
             }
         }
 
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
+        @media (max-width:992px) {
+            :root {
+                --font-size-6xl: 3rem;
+                --font-size-5xl: 2.5rem;
+                --font-size-4xl: 2rem
             }
-            
-            h2 {
-                font-size: 1.8rem;
-            }
-            
-            .hero-content {
-                padding: 2rem;
-            }
-            
-            .hero-content p {
-                font-size: 1.1rem;
-            }
-            
-            .header-container {
-                flex-direction: column;
-            }
-            
-            nav ul {
-                margin-top: 1.2rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 0.5rem 1rem;
-            }
-            
-            .feature-card {
-                flex: 0 0 100%;
-            }
-            
-            .comparison-table th,
-            .comparison-table td {
-                padding: 1rem 0.6rem;
-                font-size: 0.9rem;
-            }
-            
-            .glass-section {
-                padding: 1.5rem;
-            }
-        }
 
-        @media (max-width: 576px) {
-            .container {
+            header {
                 width: 95%;
+                height: auto;
+                top: 15px
             }
-            
-            h1 {
-                font-size: 1.8rem;
+
+            .nav-menu {
+                display: none;
+                position: fixed;
+                top: 0;
+                right: 0;
+                width: 250px;
+                height: 100vh;
+                background: var(--darker);
+                box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+                padding: 5rem 2rem 2rem;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.5rem;
+                z-index: 99;
+                transform: translateX(100%);
+                transition: transform .3s cubic-bezier(.25, .46, .45, .94)
             }
-            
-            .section-title h2 {
-                font-size: 1.6rem;
+
+            .nav-menu.active {
+                display: flex;
+                transform: translateX(0)
             }
-            
-            h3 {
-                font-size: 1.3rem;
+
+            .nav-button,
+            .nav-link {
+                height: auto;
+                margin: 0;
+                width: 100%;
+                padding: .75rem 0
             }
-            
-            .btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.9rem;
+
+            .nav-button {
+                margin-top: 1rem;
+                justify-content: center
             }
-            
-            .image-placeholder {
-                height: 250px;
+
+            .menu-toggle {
+                display: block
             }
-            
-            .feature-card {
-                padding: 1.5rem;
+
+            .discord-card {
+                padding: 3rem 2rem
             }
-            
-            blockquote {
-                padding: 1.5rem;
+
+            .games-grid {
+                grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+                gap: 1rem
+            }
+
+            .game-card {
+                height: 160px
+            }
+        }
+
+        @media (max-width:768px) {
+            :root {
+                --font-size-6xl: 2.5rem;
+                --font-size-5xl: 2.25rem;
+                --font-size-4xl: 1.75rem;
+                --font-size-3xl: 1.5rem;
+                --font-size-2xl: 1.25rem;
+                --font-size-xl: 1.125rem
+            }
+
+            header {
+                width: 100%;
+                top: 0;
+                border-radius: 0;
+                height: 60px
+            }
+
+            nav {
+                padding: 0 1.5rem
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                width: 100%;
+                justify-content: center
+            }
+
+            .hero-games {
+                flex-wrap: wrap;
+                justify-content: center
+            }
+
+            .games-grid {
+                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr))
+            }
+
+            .game-card {
+                padding: 1.5rem 1rem;
+                height: 150px
+            }
+
+            .game-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+                margin-bottom: 1rem
+            }
+
+            .game-title {
+                font-size: var(--font-size-sm)
+            }
+
+            .about-text {
+                padding: 2rem
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 2rem;
+                align-items: center;
+                text-align: center
+            }
+
+            .footer-branding {
+                flex-basis: auto;
+                width: 100%;
+                max-width: 300px
+            }
+
+            .footer-social {
+                justify-content: center
+            }
+
+            .footer-links ul {
+                text-align: center
+            }
+
+            .footer-links a {
+                justify-content: center
+            }
+
+            .footer-links a:hover {
+                transform: none
+            }
+
+            .footer-links a:hover i {
+                opacity: 0
+            }
+        }
+
+        @media (max-width:576px) {
+            .container {
+                padding: 0 1.5rem
+            }
+
+            .hero {
+                padding: 6rem 0 3rem
+            }
+
+            .about,
+            .discord,
+            .features,
+            .games {
+                padding: 5rem 0
+            }
+
+            .games-grid {
+                grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+                gap: 1rem
+            }
+
+            .game-card {
+                height: 130px;
+                padding: 1rem .5rem
+            }
+
+            .game-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                margin-bottom: .75rem
+            }
+
+            .game-title {
+                font-size: var(--font-size-xs)
+            }
+
+            .discord-card {
+                padding: 2.5rem 1.5rem
             }
         }
     </style>
-</head>
-<body>
-    <!-- Accent Backgrounds -->
-    <div class="accent-bg accent-1"></div>
-    <div class="accent-bg accent-2"></div>
-    <div class="accent-bg accent-3"></div>
-
-    <!-- Scroll Progress Bar -->
-    <div class="scroll-progress"></div>
-
-    <!-- Header with Navigation -->
-    <header>
-        <div class="container header-container">
-            <div class="logo">Exilitay<span>Graphics</span></div>
-            <nav>
-                <ul>
-                    <li><a href="#introduction">Introduction</a></li>
-                    <li><a href="#technical">Technical</a></li>
-                    <li><a href="#artistic">Artistic Vision</a></li>
-                    <li><a href="#community">Community</a></li>
-                    <li><a href="#future">Future</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Revolutionizing Realism in Assetto Corsa</h1>
-                <p>Experience the cutting-edge visual enhancements that transform virtual racing into cinematic masterpieces</p>
-                <a href="#technical" class="btn">Explore Exilitay's Vision</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Introduction Section -->
-    <section id="introduction">
-        <div class="container">
-            <div class="section-title">
-                <h2>Introduction to Exilitay's Graphics</h2>
-            </div>
-            
-            <div class="glass-section" data-animation="fadeIn">
-                <span class="badge">Game Changer</span>
-                <p>Exilitay has emerged as a pioneering figure in the modding community for <strong>Assetto Corsa</strong>, a racing simulation game renowned for its realistic physics and customization potential. Through a series of graphics mods—most notably the <strong>Exilitay Realism PP (post-processing) filter</strong>—Exilitay has redefined visual immersion in the game, bridging the gap between virtual racing and real-world cinematography.</p>
-                
-                <div class="image-placeholder" data-animation="fadeIn">
-                    [Image: Side-by-side comparison of vanilla Assetto Corsa vs. Exilitay's graphics mods showing dramatic improvement in lighting, shadows, and color grading]
-                </div>
-                
-                <p>This groundbreaking work provides racing simulation enthusiasts with an entirely new level of visual fidelity, transforming Assetto Corsa into a platform that rivals professional visualization tools. The modifications create an experience that's not just about racing—it's about immersing yourself in a meticulously crafted digital environment that pushes the boundaries of what's possible in gaming visuals.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Technical Foundations Section -->
-    <section id="technical">
-        <div class="container">
-            <div class="section-title">
-                <h2>Technical Foundations</h2>
-            </div>
-            
-            <div class="glass-section" data-animation="fadeIn">
-                <span class="badge">Core Technology</span>
-                <p>Exilitay's mods rely on a sophisticated interplay of third-party tools and custom code to overhaul Assetto Corsa's graphics. The core components create a foundation for visual excellence that transforms the gaming experience.</p>
-                
-                <div class="features">
-                    <div class="feature-card" data-animation="fadeIn" data-delay="0">
-                        <h3>Custom Shaders Patch</h3>
-                        <p>Integrates a community-developed framework enabling advanced graphical effects such as dynamic shadows, ray-traced reflections, and sophisticated particle systems that respond to environmental conditions.</p>
-                    </div>
-                    <div class="feature-card" data-animation="fadeIn" data-delay="200">
-                        <h3>Pure Weather Mod</h3>
-                        <p>Simulates realistic weather patterns and time-of-day lighting. Fog effects are meticulously calibrated to mimic atmospheric scattering, with adjustable density and altitude parameters that respond to in-game weather conditions.</p>
-                    </div>
-                    <div class="feature-card" data-animation="fadeIn" data-delay="400">
-                        <h3>Post-Processing Filters</h3>
-                        <p>The Exilitay Realism PPFilter adjusts color grading, contrast, and ambient occlusion to create a cinematic aesthetic with features like depth of field, motion blur, and vignette effects.</p>
+    <div class="smoothscroll-wrapper" id="smooth-wrapper">
+        <div id="content">
+            <div class="motion-blur-trail" id="motionBlurTrail"></div>
+            <header id="header">
+                <nav><a href="#" class="logo">
+                        <div class="logo-icon"><i class="fas fa-image"></i></div>
+                        <div class="logo-text">Exilitay<span>Graphics</span></div>
+                    </a>
+                    <div class="nav-menu" id="nav-menu"><a href="#features" class="nav-link">Features</a> <a href="#visuals" class="nav-link">Visuals</a> <a href="#tech" class="nav-link">Tech</a><a href="#about" class="nav-link">About</a> <a href="https://discord.com/invite/exilitay" class="nav-button" target="_blank"><i class="fab fa-discord"></i> Join Discord</a></div><button class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></button>
+                </nav>
+            </header>
+            <section class="hero" id="home">
+                <div class="particles" id="particles"></div>
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="slide-up hero-badge"><i class="fas fa-star"></i> Premium Graphics Mods</div>
+                        <h1 class="slide-up delay-1 hero-title">Revolutionizing Realism in Assetto Corsa</h1>
+                        <p class="slide-up delay-2 hero-description">Exilitay's Graphics mods provide stunning visual enhancements for Assetto Corsa, creating cinematic masterpieces from your racing sessions.</p>
+                        <div class="hero-buttons"><a href="#features" class="slide-up btn-primary delay-3">Explore Features <i class="fas fa-arrow-right"></i></a><a href="https://discord.gg/exilitay" class="slide-up btn-secondary delay-4" target="_blank">Join Our Community <i class="fab fa-discord"></i></a></div>
+                        <div class="slide-up delay-5 hero-games">
+                            <div class="game-badge"><i class="fas fa-palette"></i> <span>Realistic Lighting</span></div>
+                            <div class="game-badge"><i class="fas fa-cloud-rain"></i> <span>Weather Effects</span></div>
+                            <div class="game-badge"><i class="fas fa-camera"></i> <span>Custom Filters</span></div>
+                        </div>
                     </div>
                 </div>
-                
-                <div class="divider"></div>
-                
-                <h3>Performance Considerations</h3>
-                <p>While Exilitay's mods are visually stunning, they demand robust hardware. The recommended setup includes:</p>
-                
-                <div class="table-container" data-animation="fadeIn">
-                    <table class="comparison-table">
-                        <tr>
-                            <th>Component</th>
-                            <th>Recommended Specification</th>
-                            <th>Minimum Specification</th>
-                        </tr>
-                        <tr>
-                            <td>GPU</td>
-                            <td>NVIDIA RTX 5070 / AMD RX 6700XT</td>
-                            <td>NVIDIA GTX 1080 / AMD RX 5700</td>
-                        </tr>
-                        <tr>
-                            <td>CPU</td>
-                            <td>Ryzen 7 9700X / Intel i7-13700K</td>
-                            <td>Ryzen 5 5600X / Intel i5-12600K</td>
-                        </tr>
-                        <tr>
-                            <td>Resolution</td>
-                            <td>1440p / 4K with DLSS</td>
-                            <td>1080p</td>
-                        </tr>
-                        <tr>
-                            <td>RAM</td>
-                            <td>32GB</td>
-                            <td>16GB</td>
-                        </tr>
-                    </table>
+            </section>
+            <section class="features" id="features">
+                <div class="container">
+                    <div class="section-header"><span class="section-subtitle">What Makes Us Special</span>
+                        <h2 class="section-title">Premium Features</h2>
+                        <p class="section-description">Exilitay Graphics offers a suite of powerful features designed to enhance your Assetto Corsa racing experience.</p>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                            <h3 class="feature-title">Regular Updates</h3>
+                            <p class="feature-description">Our graphics mods are constantly updated to ensure compatibility with the latest game versions and to add new visual effects.</p><a href="#" class="feature-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-sun"></i></div>
+                            <h3 class="feature-title">Time of Day Mastery</h3>
+                            <p class="feature-description">Experience breathtaking sunsets, dawn lighting, and night scenes with our advanced time-of-day lighting system.</p><a href="#" class="feature-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-tint"></i></div>
+                            <h3 class="feature-title">Weather Effects</h3>
+                            <p class="feature-description">From rain reflections to dynamic fog and cloud systems, our weather effects create immersive racing conditions.</p><a href="#" class="feature-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
                 </div>
-                
-                <p>Users with mid-tier systems often face trade-offs, such as reducing shadow quality or disabling resource-intensive effects like volumetric clouds to maintain acceptable frame rates.</p>
-            </div>
+            </section>
+            <section class="games" id="visuals">
+                <div class="container">
+                    <div class="section-header"><span class="section-subtitle">Visual Gallery</span>
+                        <h2 class="section-title">Stunning Screenshots</h2>
+                        <p class="section-description">See the difference that Exilitay Graphics mods make with these comparison images.</p>
+                    </div>
+                    <div class="games-grid">
+                        <a href="#" class="game-card-link">
+                            <div class="game-card">
+                                <div class="game-icon"><i class="fas fa-sun"></i></div>
+                                <h3 class="game-title">Golden Hour</h3>
+                            </div>
+                        </a>
+                        <a href="#" class="game-card-link">
+                            <div class="game-card">
+                                <div class="game-icon"><i class="fas fa-cloud-rain"></i></div>
+                                <h3 class="game-title">Rain Effects</h3>
+                            </div>
+                        </a>
+                        <a href="#" class="game-card-link">
+                            <div class="game-card">
+                                <div class="game-icon"><i class="fas fa-mountain"></i></div>
+                                <h3 class="game-title">Mountain Roads</h3>
+                            </div>
+                        </a>
+                        <a href="#" class="game-card-link">
+                            <div class="game-card">
+                                <div class="game-icon"><i class="fas fa-moon"></i></div>
+                                <h3 class="game-title">Night Racing</h3>
+                            </div>
+                        </a>
+                        <a href="#" class="game-card-link">
+                            <div class="game-card">
+                                <div class="game-icon"><i class="fas fa-car"></i></div>
+                                <h3 class="game-title">Car Showcases</h3>
+                            </div>
+                        </a>
+                        <a href="#" class="game-card-link">
+                            <div class="game-card">
+                                <div class="game-icon"><i class="fas fa-road"></i></div>
+                                <h3 class="game-title">Racetrack Details</h3>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+            <section class="features" id="tech">
+                <div class="container">
+                    <div class="section-header"><span class="section-subtitle">Technical Details</span>
+                        <h2 class="section-title">How It Works</h2>
+                        <p class="section-description">Understanding the technology behind Exilitay's graphics mods.</p>
+                    </div>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-code"></i></div>
+                            <h3 class="feature-title">Custom Shader Patchs</h3>
+                            <p class="feature-description">Exilitay leverages advanced custom shader patches to enhance lighting, reflections, and material properties in the game.</p><a href="#" class="feature-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-sliders-h"></i></div>
+                            <h3 class="feature-title">Post-Processing</h3>
+                            <p class="feature-description">Our post-processing filters enhance color grading, contrast, and add cinematic effects like depth of field and motion blur.</p><a href="#" class="feature-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon"><i class="fas fa-microchip"></i></div>
+                            <h3 class="feature-title">Performance Optimization</h3>
+                            <p class="feature-description">We carefully balance visual quality with performance to ensure smooth gameplay even with enhanced graphics.</p><a href="#" class="feature-more">Learn more <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="about" id="about">
+                <div class="container">
+                    <div class="section-header"><span class="section-subtitle">About Us</span>
+                        <h2 class="section-title">The Exilitay Story</h2>
+                        <p class="section-description">Learn more about our graphics enhancement project and the team behind it.</p>
+                    </div>
+                    <div class="about-content">
+                        <div class="about-text">
+                            <p>Exilitay Graphics is a passion project created by a team of dedicated sim racing enthusiasts who wanted to push the visual boundaries of Assetto Corsa beyond what was previously possible.</p>
+                            <p>Our commitment is to provide high-quality, regularly updated visual mods that work flawlessly with all Assetto Corsa content. With advanced lighting techniques and custom post-processing, Exilitay Graphics transforms the game into a photorealistic racing experience.</p>
+                            <div class="about-quote">
+                                <div class="quote-icon"><i class="fas fa-quote-right"></i></div>
+                                <blockquote>"I created Exilitay Graphics to combine my passion for photography, cinematography, and racing simulation. Our goal is to make every Assetto Corsa session feel like a movie scene while maintaining the integrity of the racing experience."</blockquote>
+                                <div class="quote-author">
+                                    <div class="author-avatar">E</div>
+                                    <div class="author-info">
+                                        <h4>Exilitay</h4>
+                                        <p>Lead Developer</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="discord" id="discord">
+                <div class="container">
+                    <div class="discord-card">
+                        <h2 class="discord-title">Join Our Discord Community</h2>
+                        <p class="discord-description">Connect with other users, get support, report bugs, and stay updated on the latest Exilitay Graphics news and features.</p>
+                        <div class="member-counts">
+                            <div class="member-count" id="online-members"><span class="discord-count-loading"></span> <span>Loading online members...</span></div>
+                            <div class="member-total" id="total-members">Loading total members...</div>
+                        </div><a href="https://discord.gg/exilitay" class="discord-btn" target="_blank"><i class="fab fa-discord"></i> Join Discord Server</a>
+                    </div>
+                </div>
+            </section>
+            <footer>
+                <div class="container">
+                    <div class="footer-content">
+                        <div class="footer-branding"><a href="#" class="footer-logo">
+                                <div class="footer-logo-icon"><i class="fas fa-image"></i></div>
+                                <div class="footer-logo-text">Exilitay<span>Graphics</span></div>
+                            </a>
+                            <p class="footer-description">The most powerful and realistic graphics mod available for Assetto Corsa. Elevate your racing experience with our premium visual enhancements.</p>
+                            <div class="footer-social"><a href="https://discord.gg/exilitay" class="social-link" target="_blank"><i class="fab fa-discord"></i></a> <a href="https://github.com/exilitay" class="social-link"><i class="fab fa-github"></i></a> <a href="https://www.youtube.com/@ExilitayGraphics" class="social-link"><i class="fab fa-youtube"></i></a></div>
+                        </div>
+                        <div class="footer-links">
+                            <h3>Features</h3>
+                            <ul>
+                                <li><a href="#features"><i class="fas fa-chevron-right"></i> Regular Updates</a></li>
+                                <li><a href="#features"><i class="fas fa-chevron-right"></i> Weather Effects</a></li>
+                                <li><a href="#features"><i class="fas fa-chevron-right"></i> Time of Day</a></li>
+                                <li><a href="#features"><i class="fas fa-chevron-right"></i> Premium Filters</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links">
+                            <h3>Gallery</h3>
+                            <ul>
+                                <li><a href="#visuals"><i class="fas fa-chevron-right"></i> Screenshots</a></li>
+                                <li><a href="#visuals"><i class="fas fa-chevron-right"></i> Comparisons</a></li>
+                                <li><a href="#visuals"><i class="fas fa-chevron-right"></i> Videos</a></li>
+                                <li><a href="#visuals"><i class="fas fa-chevron-right"></i> View All</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-links">
+                            <h3>Company</h3>
+                            <ul>
+                                <li><a href="#about"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                                <li><a href="https://discord.com/invite/exilitay"><i class="fas fa-chevron-right"></i> Discord Community</a></li>
+                                <li><a href="#"><i class="fas fa-chevron-right"></i> Privacy Policy</a></li>
+                                <li><a href="#"><i class="fas fa-chevron-right"></i> Terms of Service</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">
+                        <p>© 2025 Exilitay Graphics. All Rights Reserved.</p>
+                    </div>
+                </div>
+            </footer>
         </div>
-    </section>
-
-    <!-- Artistic Vision Section -->
-    <section id="artistic">
-        <div class="container">
-            <div class="section-title">
-                <h2>Artistic Vision: Balancing Realism and Style</h2>
-            </div>
-            
-            <div class="glass-section" data-animation="fadeIn">
-                <span class="badge">Visual Philosophy</span>
-                <p>Exilitay's work polarizes the Assetto Corsa community by prioritizing hyper-dramatic visuals over strict realism. This approach is evident in three key areas that define the unique aesthetic:</p>
-                
-                <div class="image-placeholder" data-animation="fadeIn">
-                    [Image: A dramatic sunset scene on a racetrack with a car in motion, showcasing the exaggerated color grading with deep oranges and purples in the sky]
-                </div>
-                
-                <h3>Color Saturation and Lighting</h3>
-                <p>The PPFilter employs exaggerated color grading, with warm oranges and deep blues dominating twilight scenes. Critics argue this creates an "overly ideal" or "CGI-like" appearance, but supporters praise the aesthetic for its cinematic flair. For instance, rain-soaked tracks glisten with heightened reflectivity, while headlights cast long, atmospheric god rays through fog.</p>
-                
-                <blockquote data-animation="fadeIn">
-                    <p>"What Exilitay has created isn't meant to be a perfect simulation of reality—it's an artistic interpretation that enhances the emotional impact of racing. When you're driving at sunset with those golden hues washing over the track, it creates a moment of beauty that transcends typical gaming experiences."</p>
-                </blockquote>
-                
-                <div class="divider"></div>
-                
-                <h3>Camera Effects and Immersion</h3>
-                <p>Exilitay's custom neck physics scripts simulate head movement during acceleration, braking, and cornering. While some players find the motion excessive—comparing it to "being on a boat in turbulent waters"—others argue it heightens immersion by conveying G-forces absent in real-life sim racing. The effect is adjustable, allowing users to fine-tune responsiveness to their preference.</p>
-                
-                <div class="divider"></div>
-                
-                <h3>Weather and Environmental Dynamics</h3>
-                <p>The Pure mod integration enables dynamic weather transitions, such as sudden rainstorms or creeping fog banks. Exilitay enhances these systems with particle effects for tire spray and exhaust plumes, which interact with wind direction and vehicle speed. Seasonal variations, like autumn leaf litter on tracks, further diversify visual experiences.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Community Section -->
-    <section id="community">
-        <div class="container">
-            <div class="section-title">
-                <h2>Community-Driven Development</h2>
-            </div>
-            
-            <div class="glass-section" data-animation="fadeIn">
-                <span class="badge">Collaborative Approach</span>
-                <p>Exilitay's mods thrive on collaboration with the Assetto Corsa community, exemplified by two key practices that have shaped the evolution of these graphics enhancements:</p>
-                
-                <h3>Open Feedback Loops</h3>
-                <p>Exilitay actively solicits critiques on platforms like Reddit and Discord. For example, a 2025 Reddit thread saw users debate the merits of the PPFilter's vignette effect, leading to a revised version with subtler edge darkening. Similarly, performance complaints prompted the release of <strong>Exilitay Lite</strong>, a streamlined filter for mid-range PCs.</p>
-                
-                <div class="image-placeholder" data-animation="fadeIn">
-                    [Image: Screenshot of a Discord community discussion with highlighted feedback and Exilitay's responses about upcoming features]
-                </div>
-                
-                <div class="divider"></div>
-                
-                <h3>Monetization and Early Access</h3>
-                <p>Through Patreon, Exilitay offers exclusive early access to updates (e.g., v1.06 of Exilitay Realism). This model funds ongoing development while fostering a dedicated user base. Free alternatives, such as Exilitay Lite, ensure accessibility for casual players.</p>
-                
-                <div class="divider"></div>
-                
-                <h3>Challenges and Criticisms</h3>
-                <p>Despite widespread acclaim, Exilitay's mods face several persistent challenges:</p>
-                
-                <div class="features">
-                    <div class="feature-card" data-animation="fadeIn" data-delay="0">
-                        <h3>Performance Optimization</h3>
-                        <p>Despite advancements, the mods struggle with inconsistent resource allocation. Users report GPU utilization as low as 20–30% on high-end systems, suggesting unresolved bottlenecks in CSP or driver configurations.</p>
-                    </div>
-                    <div class="feature-card" data-animation="fadeIn" data-delay="200">
-                        <h3>Artistic Subjectivity</h3>
-                        <p>The mod's stylistic choices—particularly its saturated color palette—divide players. Detractors argue it strays too far from photorealism, while admirers liken it to a "playable car commercial".</p>
-                    </div>
-                    <div class="feature-card" data-animation="fadeIn" data-delay="400">
-                        <h3>Dependency on Third-Party Tools</h3>
-                        <p>Exilitay Realism requires constant updates to remain compatible with evolving tools like CSP and Pure. Version mismatches can lead to crashes or visual glitches, complicating installation for novice users.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Future Directions Section -->
-    <section id="future">
-        <div class="container">
-            <div class="section-title">
-                <h2>Future Directions</h2>
-            </div>
-            
-            <div class="glass-section" data-animation="fadeIn">
-                <span class="badge">Roadmap</span>
-                <p>Exilitay's roadmap hints at several innovations that will continue to push the boundaries of what's possible in racing simulation visuals:</p>
-                
-                <div class="features">
-                    <div class="feature-card" data-animation="fadeIn" data-delay="0">
-                        <h3>VR Optimization</h3>
-                        <p>Improving performance for headsets like Meta Quest 3 through foveated rendering, enhancing the immersive experience while maintaining visual quality.</p>
-                    </div>
-                    <div class="feature-card" data-animation="fadeIn" data-delay="200">
-                        <h3>Ray Tracing Integration</h3>
-                        <p>Leveraging NVIDIA's RTX 50-series hardware for real-time global illumination, creating even more realistic lighting scenarios.</p>
-                    </div>
-                    <div class="feature-card" data-animation="fadeIn" data-delay="400">
-                        <h3>Collaborative Modding</h3>
-                        <p>Partnering with car modelers to create bespoke textures optimized for the PPFilter, ensuring vehicles look their best under the enhanced lighting conditions.</p>
-                    </div>
-                </div>
-                
-                <div class="image-placeholder" data-animation="fadeIn">
-                    [Image: Concept visualization showing ray-tracing effects in a night race scenario with multiple light sources reflecting off wet pavement]
-                </div>
-                
-                <div class="divider"></div>
-                
-                <h3>Conclusion</h3>
-                <p>Exilitay's graphics mods represent a paradigm shift in racing simulation aesthetics. By marrying cutting-edge technology with bold artistic choices, they transform Assetto Corsa into a vibrant canvas for virtual motorsport storytelling. While challenges remain in performance and accessibility, Exilitay's community-centric approach ensures their work will continue to shape the genre for years to come.</p>
-                
-                <p>For newcomers, exploring these mods offers not just enhanced visuals, but a gateway into the passionate world of sim-racing customization where technology and artistry converge to create truly transcendent gaming experiences.</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-content">
-            <div class="social-icons">
-                <a href="#" class="social-icon"><i class="fab fa-patreon"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
-                <a href="#" class="social-icon"><i class="fab fa-reddit"></i></a>
-            </div>
-            <p>© 2025 Exilitay Graphics Showcase. This is a fan-made site to highlight Exilitay's work.</p>
-            <p>All Assetto Corsa content belongs to their respective owners. Last updated: April 20, 2025</p>
-        </div>
-    </footer>
-
-    <!-- JavaScript for animations -->
+    </div>
+    <div class="cursor-outer" id="cursor-outer"></div>
+    <div class="cursor-inner" id="cursor-inner"></div>
     <script>
-        // Scroll Progress Bar
         window.addEventListener('scroll', function() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.querySelector('.scroll-progress').style.width = scrolled + '%';
-        });
-        
-        // Animation on Scroll
-        const animateElements = function() {
-            const elements = document.querySelectorAll('.feature-card, .image-placeholder, .table-container, blockquote, .glass-section');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                
-                if (elementPosition < windowHeight - 100) {
-                    element.classList.add('visible');
+            const header = document.getElementById('header');
+
+            if (header) {
+                if (window.scrollY > 50) {
+                    header.classList.add('sticky');
+                } else {
+                    header.classList.remove('sticky');
                 }
-            });
-        }
-        
-        // Initial check and add scroll listener
-        document.addEventListener('DOMContentLoaded', function() {
-            // Apply animation delays
-            document.querySelectorAll('[data-delay]').forEach(element => {
-                const delay = element.getAttribute('data-delay');
-                element.style.transitionDelay = delay + 'ms';
-            });
-            
-            // Run animations on load
-            setTimeout(animateElements, 100);
-            
-            // Add scroll listener
-            window.addEventListener('scroll', animateElements);
+            }
         });
-        
-        // Smooth scrolling for navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menu-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            const header = document.getElementById('header');
+
+            if (menuToggle && navMenu) {
+                menuToggle.addEventListener('click', function() {
+                    const isActive = navMenu.classList.toggle('active');
+                    menuToggle.innerHTML = isActive ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+                    document.body.style.overflow = isActive ? 'hidden' : '';
+                });
+
+                const navLinks = navMenu.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        document.body.style.overflow = '';
+                    });
+                });
+
+                document.addEventListener('click', function(event) {
+                    if (navMenu.classList.contains('active') && !navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                        navMenu.classList.remove('active');
+                        menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                        document.body.style.overflow = '';
+                    }
+                });
+            }
+
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const href = this.getAttribute('href');
+
+                    if (href === '#' || href === '' || !document.querySelector(href)) {
+                        if (href === '#') e.preventDefault();
+                        return;
+                    }
+
+                    e.preventDefault();
+                    const targetElement = document.querySelector(href);
+
+                    if (targetElement) {
+                        const headerHeight = header ? header.offsetHeight : 0;
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.scrollY - headerHeight - 20;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: 'smooth'
+                        });
+                        if (navMenu && navMenu.classList.contains('active')) {
+                            navMenu.classList.remove('active');
+                            menuToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                            document.body.style.overflow = '';
+                        }
+                    }
                 });
             });
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const particles = document.getElementById('particles');
+            if (!particles) return;
+
+            const numParticles = 30;
+
+            for (let i = 0; i < numParticles; i++) {
+                createParticle();
+            }
+
+            function createParticle() {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                const size = Math.random() * 5 + 2;
+                const posX = Math.random() * 100;
+                const delay = Math.random() * 5;
+                const duration = Math.random() * 10 + 10;
+
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.left = `${posX}%`;
+                particle.style.bottom = '-20px';
+                particle.style.animation = `float-up ${duration}s ease-in-out ${delay}s infinite`;
+
+                particles.appendChild(particle);
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const animateOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('slide-up');
+
+                        const elementsToAnimate = entry.target.querySelectorAll('.feature-card, .game-card-link');
+                        elementsToAnimate.forEach((item, index) => {
+                            if (!item.classList.contains('animated')) {
+                                item.style.animationDelay = `${index * 0.1}s`;
+                                item.classList.add('slide-up', 'animated');
+                            }
+                        });
+
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section:not(#home), .about-content, .discord-card').forEach(element => {
+                if (!element.matches('.hero-content *')) {
+                    element.style.opacity = '0';
+                }
+                animateOnScroll.observe(element);
+            });
+        });
+
+        async function fetchDiscordMemberCount() {
+            const onlineMembersElement = document.getElementById('online-members');
+            const totalMembersElement = document.getElementById('total-members');
+
+            if (!onlineMembersElement || !totalMembersElement) {
+                console.error("Discord count elements not found.");
+                return;
+            }
+
+            const loadingSpan = onlineMembersElement.querySelector('.discord-count-loading');
+            if (loadingSpan) loadingSpan.style.display = 'inline-block';
+            onlineMembersElement.childNodes[1].textContent = ' Loading online members...';
+            totalMembersElement.textContent = 'Loading total members...';
+
+            try {
+                setTimeout(() => {
+                    if (loadingSpan) loadingSpan.style.display = 'none';
+                    onlineMembersElement.innerHTML = `<span class="pulse"></span> 2,841 members online`;
+                    totalMembersElement.textContent = `15,927 total members`;
+                }, 1500);
+            } catch (error) {
+                console.error('Error loading Discord data:', error);
+                if (loadingSpan) loadingSpan.style.display = 'none';
+                onlineMembersElement.innerHTML = `<span class="pulse" style="background-color: #ff6b6b;"></span> Error loading`;
+                totalMembersElement.textContent = `Could not load member count`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchDiscordMemberCount);
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const cursorOuter = document.getElementById('cursor-outer');
+            const cursorInner = document.getElementById('cursor-inner');
+
+            if (!cursorOuter || !cursorInner) {
+                console.error("Cursor elements not found!");
+                return;
+            }
+
+            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
+            if (!isTouchDevice) {
+                document.body.style.cursor = 'none';
+                cursorOuter.style.display = 'block';
+                cursorInner.style.display = 'block';
+
+                let mouseX = 0,
+                    mouseY = 0;
+                let outerX = 0,
+                    outerY = 0;
+                let innerX = 0,
+                    innerY = 0;
+                let animationFrameId_cursor = null;
+                document.addEventListener('mousemove', (e) => {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                });
+
+                const hoverTargets = 'a, button, input, .feature-card, .game-card-link, .social-link, .feature-more, .menu-toggle';
+                document.addEventListener('mouseover', (e) => {
+                    if (e.target.closest(hoverTargets)) {
+                        cursorOuter.classList.add('cursor-hover');
+                        cursorInner.classList.add('cursor-hover');
+                    }
+                });
+                document.addEventListener('mouseout', (e) => {
+                    if (e.target.closest(hoverTargets)) {
+                        cursorOuter.classList.remove('cursor-hover');
+                        cursorInner.classList.remove('cursor-hover');
+                    }
+                });
+
+                function animateCursor() {
+                    innerX = mouseX;
+                    innerY = mouseY;
+                    cursorInner.style.transform = `translate(${innerX}px, ${innerY}px) translate(-50%, -50%)`;
+
+                    const dx = mouseX - outerX;
+                    const dy = mouseY - outerY;
+                    outerX += dx * 0.15;
+                    outerY += dy * 0.15;
+                    cursorOuter.style.transform = `translate(${outerX}px, ${outerY}px) translate(-50%, -50%)`;
+
+                    animationFrameId_cursor = requestAnimationFrame(animateCursor);
+                }
+
+                animateCursor();
+            } else {
+                document.body.style.cursor = 'auto';
+                if (cursorOuter) cursorOuter.style.display = 'none';
+                if (cursorInner) cursorInner.style.display = 'none';
+            }
+        });
     </script>
-</body>
 </html>
