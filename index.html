@@ -335,8 +335,62 @@
     .pricing-container {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
+        gap: 2rem;
         margin-top: var(--spacing-lg);
+        padding: 1rem 0.5rem;
+        position: relative;
+        z-index: 2;
+    }
+
+    .pricing-bg-decoration {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(circle at 10% 30%, rgba(168, 69, 247, 0.05) 0%, transparent 40%),
+                    radial-gradient(circle at 90% 70%, rgba(77, 196, 255, 0.05) 0%, transparent 40%);
+        z-index: 1;
+        opacity: 0.8;
+    }
+
+    #pricing {
+        position: relative;
+        overflow: hidden;
+    }
+
+    #pricing::before {
+        content: '';
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: linear-gradient(135deg, rgba(168, 69, 247, 0.15), rgba(77, 196, 255, 0.15));
+        border-radius: 50%;
+        top: -150px;
+        left: -150px;
+        z-index: 1;
+        filter: blur(50px);
+    }
+
+    #pricing::after {
+        content: '';
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        background: linear-gradient(135deg, rgba(77, 196, 255, 0.15), rgba(168, 69, 247, 0.15));
+        border-radius: 50%;
+        bottom: -100px;
+        right: -100px;
+        z-index: 1;
+        filter: blur(40px);
+    }
+
+    .section-subtitle {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+        max-width: 700px;
+        margin: 0 auto var(--spacing-md);
+        line-height: 1.6;
     }
 
     .pricing-card {
@@ -348,62 +402,113 @@
         overflow: hidden;
         border: 1px solid var(--glass-border);
         box-shadow: var(--shadow-md);
-        transition: var(--transition);
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         display: flex;
         flex-direction: column;
         height: 100%;
     }
 
     .pricing-card:hover {
-        transform: translateY(-10px);
+        transform: translateY(-15px);
         box-shadow: var(--shadow-lg);
+        border-color: rgba(168, 69, 247, 0.3);
     }
 
     .pricing-card.popular {
-        border-color: var(--primary);
+        border: 2px solid var(--primary);
         transform: scale(1.05);
-        z-index: 1;
+        z-index: 2;
+        box-shadow: 0 15px 35px rgba(168, 69, 247, 0.2);
+        position: relative;
+    }
+
+    .pricing-card.popular::before {
+        content: '';
+        position: absolute;
+        inset: -3px;
+        border-radius: var(--radius-lg);
+        background: var(--primary-gradient);
+        z-index: -1;
+        opacity: 0.3;
+        animation: pulse-glow 2s infinite alternate;
+    }
+
+    @keyframes pulse-glow {
+        0% {
+            opacity: 0.2;
+        }
+        100% {
+            opacity: 0.4;
+        }
     }
 
     .pricing-card.popular:hover {
-        transform: scale(1.05) translateY(-10px);
+        transform: scale(1.05) translateY(-15px);
+        box-shadow: 0 20px 40px rgba(168, 69, 247, 0.3);
     }
 
     .popular-badge {
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 12px;
+        right: -35px;
         background: var(--primary-gradient);
         color: white;
-        padding: 0.5rem 1rem;
+        padding: 0.5rem 3rem;
         font-size: 0.8rem;
         font-weight: 600;
-        border-bottom-left-radius: var(--radius-md);
+        transform: rotate(45deg);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        z-index: 3;
     }
 
     .pricing-header {
-        padding: var(--spacing-md);
+        padding: var(--spacing-md) var(--spacing-md) 1rem;
         text-align: center;
         border-bottom: 1px solid var(--glass-border);
+        position: relative;
+    }
+
+    .pricing-header::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 10%;
+        right: 10%;
+        height: 1px;
+        background: var(--primary-gradient);
+    }
+
+    .pricing-card.popular .pricing-header::after {
+        left: 5%;
+        right: 5%;
+        height: 2px;
     }
 
     .pricing-price {
         display: flex;
         align-items: baseline;
         justify-content: center;
-        margin: var(--spacing-sm) 0;
+        margin: var(--spacing-md) 0 var(--spacing-sm);
     }
 
     .pricing-price .price {
-        font-size: 2.5rem;
-        font-weight: 700;
-        color: var(--primary);
+        font-size: 3rem;
+        font-weight: 800;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-right: 4px;
+    }
+
+    .pricing-card.popular .pricing-price .price {
+        font-size: 3.2rem;
     }
 
     .pricing-price .period {
-        font-size: 1rem;
+        font-size: 1.1rem;
         color: var(--text-secondary);
-        margin-left: 0.25rem;
+        font-weight: 500;
     }
 
     .pricing-features {
@@ -420,14 +525,23 @@
     .pricing-features li {
         display: flex;
         align-items: flex-start;
-        margin-bottom: 0.75rem;
+        margin-bottom: 1rem;
         color: var(--text-secondary);
+        line-height: 1.4;
     }
 
     .pricing-features li i {
         color: var(--primary);
-        margin-right: 0.5rem;
-        margin-top: 0.25rem;
+        margin-right: 0.75rem;
+        margin-top: 0.2rem;
+        font-size: 1.1rem;
+    }
+
+    .pricing-card.popular .pricing-features li i {
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
     }
 
     .pricing-note {
@@ -435,16 +549,36 @@
         font-size: 0.9rem;
         color: var(--text-tertiary);
         font-style: italic;
+        line-height: 1.5;
+        padding: 0 0.5rem;
     }
 
     .pricing-action {
-        padding: var(--spacing-md);
+        padding: var(--spacing-md) var(--spacing-md) var(--spacing-lg);
         text-align: center;
+    }
+
+    .pricing-action .btn {
+        padding: 1rem 2rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+
+    .pricing-action .btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(168, 69, 247, 0.4);
+    }
+
+    .pricing-card.popular .pricing-action .btn-primary {
+        background: var(--primary-gradient);
+        font-size: 1.1rem;
+        padding: 1.1rem 2.2rem;
     }
 
     @media (max-width: 992px) {
         .pricing-container {
             grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
         
         .pricing-card.popular {
@@ -455,6 +589,9 @@
     @media (max-width: 768px) {
         .pricing-container {
             grid-template-columns: 1fr;
+            max-width: 90%;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .pricing-card.popular {
@@ -462,12 +599,63 @@
         }
         
         .pricing-card {
-            max-width: 400px;
+            max-width: 450px;
             margin: 0 auto;
+        }
+        
+        .pricing-card.popular {
+            max-width: 450px;
+        }
+        
+        .popular-badge {
+            top: 8px;
+            right: -40px;
+            padding: 0.4rem 3rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .pricing-card:hover {
+            transform: translateY(-8px);
+        }
+        
+        .pricing-card.popular:hover {
+            transform: scale(1.05) translateY(-8px);
+        }
+        
+        .pricing-price .price {
+            font-size: 2.5rem;
+        }
+        
+        .pricing-card.popular .pricing-price .price {
+            font-size: 2.7rem;
+        }
+        
+        .pricing-card.popular .pricing-action .btn-primary {
+            font-size: 1rem;
+            padding: 1rem 2rem;
+        }
+        
+        .section-subtitle {
+            font-size: 1.1rem;
+            padding: 0 0.5rem;
         }
     }
 
     .cta{text-align:center;max-width:800px;margin:0 auto;padding:var(--spacing-xl) 0}
+
+    .pricing-card h3 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .pricing-card.popular h3 {
+        font-size: 2rem;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
 </style>
 <header class=header>
     <nav class=navbar><a class=logo href=#>
@@ -743,10 +931,11 @@ Didn't kill my fps, had good frame rate the entire time!</div>
     </div>
 </section>
 <section class=section id=pricing>
+    <div class="pricing-bg-decoration"></div>
     <div class=container>
-        <div class=section-header>
-            <h2 class=section-title>Pricing Plans</h2>
-            <p>Choose the plan that best fits your needs and start enhancing your Assetto Corsa experience today.</p>
+        <div class="section-header animate-on-scroll">
+            <h2 class="section-title">Pricing Plans</h2>
+            <p class="section-subtitle">Choose the plan that best fits your needs and start enhancing your Assetto Corsa experience today.</p>
         </div>
         
         <div class="pricing-container">
@@ -900,7 +1089,7 @@ Note: Requires at least Pure version 2.38.
         <div class="glass-card cta">
             <h2 class=cta-title>Ready to Transform Your Racing Experience?</h2>
             <p class=cta-description>Join thousands of sim racers who have upgraded their Assetto Corsa visuals with Exilitay Graphics.
-            <div class=cta-buttons><a class="btn btn-lg btn-primary" href="https://patreon.com/exi"><i class="fas fa-download"></i> Get Started </a><a class="btn btn-lg btn-secondary" href=https://discord.gg/exilitay><i class="fab fa-discord"></i> Join Us</a></div>
+            <div class=cta-buttons><a class="btn btn-lg btn-primary" href="https://www.patreon.com/c/Exilitay/home?redirect=true"><i class="fas fa-download"></i> Get Started </a><a class="btn btn-lg btn-secondary" href=https://discord.gg/exilitay><i class="fab fa-discord"></i> Join Us</a></div>
         </div>
     </div>
 </section>
@@ -1139,5 +1328,36 @@ Note: Requires at least Pure version 2.38.
                 }
             });
         });
+        
+        // Animation for pricing cards
+        const pricingCards = document.querySelectorAll('.pricing-card');
+        
+        if (pricingCards.length > 0) {
+            // Add staggered animation delay
+            pricingCards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(40px)';
+                card.style.transition = `all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1) ${index * 0.1}s`;
+            });
+            
+            // Use Intersection Observer to trigger animation
+            const pricingObserver = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const card = entry.target;
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = card.classList.contains('popular') ? 
+                                'scale(1.05) translateY(0)' : 'translateY(0)';
+                        }, 200);
+                        pricingObserver.unobserve(card);
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            pricingCards.forEach(card => {
+                pricingObserver.observe(card);
+            });
+        }
     });
 </script>
