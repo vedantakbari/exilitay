@@ -51,6 +51,27 @@
         color: var(--text-primary);
         transform: rotate(15deg);
     }
+    
+    /* Theme toggle animation */
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    .theme-toggle.spinning i {
+        animation: spin 0.5s ease;
+    }
+
+    /* Fix menu toggle visibility */
+    .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        color: var(--text-primary);
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
 
     /* Light theme navbar adjustments */
     :root[data-theme="light"] .navbar {
@@ -58,18 +79,404 @@
         border-color: rgba(0, 0, 0, 0.05);
     }
 
-    /* Mobile menu adjustments */
+    /* Enhanced mobile styling */
     @media (max-width: 768px) {
+        .menu-toggle {
+            display: block;
+        }
+        
+        .navbar {
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius-lg);
+            margin: 0 0.75rem;
+        }
+        
+        .logo {
+            font-size: 1.3rem;
+        }
+        
+        .logo-icon {
+            width: 35px;
+            height: 35px;
+        }
+        
         .nav-links {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            right: 0;
+            background: var(--bg-lighter);
+            padding: 1.5rem;
+            flex-direction: column;
+            gap: 1rem;
+            display: none;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+            border-bottom: 1px solid var(--glass-border);
+        }
+        
+        .nav-links.active {
             display: flex;
         }
+        
+        .nav-links .btn {
+            width: 100%;
+            justify-content: center;
+            margin-top: 0.5rem;
+        }
+        
+        .hero {
+            padding-top: 6rem;
+            min-height: auto;
+            padding-bottom: 3rem;
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 0 0.5rem;
+        }
+        
+        .hero-badge {
+            font-size: 0.8rem;
+            padding: 0.4rem 0.8rem;
+        }
+        
+        .hero-image-container {
+            margin-top: 2rem;
+        }
+        
+        .hero-image {
+            height: 200px;
+        }
+        
+        .features-row {
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .feature-item {
+            margin-bottom: 0;
+            padding: 1rem;
+        }
+        
+        .section {
+            padding: var(--spacing-lg) 0;
+        }
+        
+        .section-header {
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+        }
+        
+        .row {
+            margin: 0;
+        }
+        
+        .col, .col-2, .col-3 {
+            padding: 0.5rem;
+        }
+        
+        .gallery-tabs {
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .gallery-tab {
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .gallery-grid {
+            gap: 0.75rem;
+        }
+        
+        .gallery-item {
+            height: 175px;
+        }
+        
+        .testimonial-card {
+            flex: 0 0 280px;
+            padding: var(--spacing-sm);
+        }
+        
+        .requirements-card {
+            padding: var(--spacing-sm);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .requirements-title {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .requirements-icon {
+            width: 40px;
+            height: 40px;
+            font-size: 1.25rem;
+        }
+        
+        .footer-grid {
+            gap: 1.5rem;
+        }
+        
+        .footer {
+            padding: var(--spacing-lg) 0 var(--spacing-sm);
+        }
     }
+
+    @media (max-width: 576px) {
+        .container {
+            width: 95%;
+            padding: 0 0.5rem;
+        }
+        
+        .header {
+            top: 10px;
+        }
+        
+        .navbar {
+            margin: 0 0.5rem;
+        }
+        
+        .hero-content h1 {
+            font-size: 1.6rem;
+            line-height: 1.4;
+            margin-bottom: 0.75rem;
+        }
+        
+        p {
+            font-size: 0.95rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .hero-buttons {
+            flex-direction: column;
+            gap: 0.75rem;
+            width: 100%;
+            margin-top: var(--spacing-sm);
+        }
+        
+        .hero-buttons .btn {
+            width: 100%;
+            padding: 0.7rem 1rem;
+        }
+        
+        .glass-card {
+            padding: var(--spacing-sm);
+            border-radius: var(--radius-md);
+        }
+        
+        .feature-card-icon {
+            width: 50px;
+            height: 50px;
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .feature-card-title {
+            font-size: 1.1rem;
+        }
+        
+        .gallery-item {
+            height: 160px;
+        }
+        
+        .faq-question {
+            padding: 0.75rem;
+            font-size: 0.95rem;
+        }
+        
+        .faq-answer {
+            padding: 0 0.75rem 0.75rem;
+            font-size: 0.9rem;
+        }
+        
+        .cta-title {
+            font-size: 1.6rem;
+        }
+        
+        .cta-description {
+            font-size: 1rem;
+        }
+        
+        .cta-buttons {
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .cta-buttons .btn {
+            width: 100%;
+        }
+        
+        .requirements-item {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 0.25rem;
+        }
+        
+        .requirements-item i {
+            margin-bottom: 0.25rem;
+        }
+        
+        .footer-column h4 {
+            margin-bottom: 0.75rem;
+        }
+    }
+
+    .animate-on-scroll.animated{opacity:1;transform:translateY(0)}
+
+    /* Pricing Styles */
+    .pricing-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        margin-top: var(--spacing-lg);
+    }
+
+    .pricing-card {
+        position: relative;
+        background: var(--glass-bg);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        border: 1px solid var(--glass-border);
+        box-shadow: var(--shadow-md);
+        transition: var(--transition);
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .pricing-card:hover {
+        transform: translateY(-10px);
+        box-shadow: var(--shadow-lg);
+    }
+
+    .pricing-card.popular {
+        border-color: var(--primary);
+        transform: scale(1.05);
+        z-index: 1;
+    }
+
+    .pricing-card.popular:hover {
+        transform: scale(1.05) translateY(-10px);
+    }
+
+    .popular-badge {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: var(--primary-gradient);
+        color: white;
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        font-weight: 600;
+        border-bottom-left-radius: var(--radius-md);
+    }
+
+    .pricing-header {
+        padding: var(--spacing-md);
+        text-align: center;
+        border-bottom: 1px solid var(--glass-border);
+    }
+
+    .pricing-price {
+        display: flex;
+        align-items: baseline;
+        justify-content: center;
+        margin: var(--spacing-sm) 0;
+    }
+
+    .pricing-price .price {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--primary);
+    }
+
+    .pricing-price .period {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        margin-left: 0.25rem;
+    }
+
+    .pricing-features {
+        padding: var(--spacing-md);
+        flex: 1;
+    }
+
+    .pricing-features ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .pricing-features li {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 0.75rem;
+        color: var(--text-secondary);
+    }
+
+    .pricing-features li i {
+        color: var(--primary);
+        margin-right: 0.5rem;
+        margin-top: 0.25rem;
+    }
+
+    .pricing-note {
+        margin-top: var(--spacing-sm);
+        font-size: 0.9rem;
+        color: var(--text-tertiary);
+        font-style: italic;
+    }
+
+    .pricing-action {
+        padding: var(--spacing-md);
+        text-align: center;
+    }
+
+    @media (max-width: 992px) {
+        .pricing-container {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .pricing-card.popular {
+            grid-column: span 2;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .pricing-container {
+            grid-template-columns: 1fr;
+        }
+        
+        .pricing-card.popular {
+            grid-column: auto;
+        }
+        
+        .pricing-card {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+    }
+
+    .cta{text-align:center;max-width:800px;margin:0 auto;padding:var(--spacing-xl) 0}
 </style>
 <header class=header>
     <nav class=navbar><a class=logo href=#>
             <div class=logo-icon><i class="fas fa-image"></i></div>Exilitay<span>Graphics</span>
         </a>
-        <div class=nav-links><a class=nav-link href=#features>Features</a> <a class=nav-link href=#gallery>Gallery</a> <a class=nav-link href=#requirements>Requirements</a> <a class=nav-link href=#faq>FAQ</a> 
+        <button class="menu-toggle" aria-label="Toggle menu" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class=nav-links><a class=nav-link href=#features>Features</a> <a class=nav-link href=#gallery>Gallery</a> <a class=nav-link href=#pricing>Pricing</a> <a class=nav-link href=#requirements>Requirements</a> <a class=nav-link href=#faq>FAQ</a> 
             <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
                 <i class="fas fa-moon"></i>
             </button>
@@ -86,7 +493,7 @@
                 <p>Exilitay Graphics delivers the most advanced and complex visual enhancement for Assetto Corsa, pushing the boundaries of realism and creating a immersive racing experience.
                 <div class=hero-buttons><a class="btn btn-lg btn-primary" href="https://www.patreon.com/c/Exilitay/home?redirect=true"><i class="fas fa-download"></i> Download Now </a><a class="btn btn-lg btn-secondary" href=#gallery><i class="fas fa-eye"></i> View Gallery</a></div>
             </div>
-            <div class=hero-image-container><img alt="" class=hero-image src="https://cdn.discordapp.com/attachments/1363592766046863573/1363612721341530274/Screenshot_hhrc_e92_dark_jp_ks_nordschleife_8-3-125-19-12-34.png?ex=6806aacf&is=6805594f&hm=f1f9b43ccd03e95ba852e63c8ee6418ccae98c6bf46b2e5ad46cacb1d36e4a50&"></div>
+            <div class=hero-image-container><img alt="" class=hero-image src="https://previews.dropbox.com/p/thumb/ACkZeL38hGU4Eh7y-hemX8kLZm24pUnTUT54kO3aZdOOdPoEa8EfWJ-IrOjAJuNXwv2mvnSK6_C_1YZ7reBS5mC--zpyCW1q27v6kdv4A_vVr_gMpep0odA8Y6kzHO_sRBpZh1Zy-ruE2x9sEAnI9xvwmnHRHx6x-b3_zFyBDtBbx_N7xDSq6AIK-jDfNElX8K2BBfTTHA_gAqWfgkpftmrsw-ohm9PsT5bMYG2dyCmyXIs59ePJ6HhS59LXsJxFPk-7X94vRXuef-4SllIR3ButDoTuTPbJj5PHBH3JGCop54oCbgFtU6BFx4pcB3_lx5E/p.png"></div>
         </div>
         <div class=features-row>
             <div class=feature-item>
@@ -181,20 +588,20 @@
             <div class=gallery-tab data-category="gallery">Gallery Hall</div>
         </div>
         <div class=gallery-grid>
-            <div class=gallery-item data-category="night bmw"><img alt="" class=gallery-image src="https://cdn.discordapp.com/attachments/1363592766046863573/1363612721341530274/Screenshot_hhrc_e92_dark_jp_ks_nordschleife_8-3-125-19-12-34.png?ex=6806aacf&is=6805594f&hm=f1f9b43ccd03e95ba852e63c8ee6418ccae98c6bf46b2e5ad46cacb1d36e4a50&"></div>
-            <div class=gallery-item data-category="porsche"><img alt="" class=gallery-image src="https://cdn.discordapp.com/attachments/1363592766046863573/1363612743344853082/Screenshot_mby_porsche_964_turbo_dr_greece_14-3-125-21-0-43.png?ex=6806aad4&is=68055954&hm=eb3ed5f8edbd4e6d62c8bfd2bd2f29119674a1d7f323721318cf10c66a03b47a&"></div>
-            <div class=gallery-item data-category="bmw"><img alt="" class=gallery-image src="https://cdn.discordapp.com/attachments/1360528122365087791/1360528565967388844/Screenshot_nohesi_bmw_m3_g80_nohesi_110_27-0-125-19-40-33.jpg?ex=6806a737&is=680555b7&hm=e2026fef5a52067c9310c8aa8f43de82189f28133715f9283cc1835aa6909906&"></div>
-            <div class=gallery-item data-category="bmw"><img alt="" class=gallery-image src="https://cdn.discordapp.com/attachments/1360528122365087791/1360528670367682630/Screenshot_nohesi_bmw_m3_g80_nohesi_110_22-1-125-10-36-24.png?ex=6806a750&is=680555d0&hm=e008ffda9b82415431ee31e0c301976703dad452b52738e90d528955c811d315&"></div>
-            <div class=gallery-item data-category="bmw gallery"><img alt="" class=gallery-image src="https://cdn.discordapp.com/attachments/1360528122365087791/1360528901234753617/Screenshot_p_mlgz_tgn_bmw_m2_g87_tuned_mxz_gallery_hall_11-2-125-18-5-7.png?ex=6806a787&is=68055607&hm=373d32f1c8fc11d20847135694afc354ba134f5bec97d4d1098497494beffd75&"></div>
-            <div class=gallery-item data-category="bmw gallery"><img alt="" class=gallery-image src="https://cdn.discordapp.com/attachments/1360528122365087791/1360528919241162803/Screenshot_p_mlgz_tgn_bmw_m2_g87_tuned_mxz_gallery_hall_11-2-125-18-5-57.png?ex=6806a78b&is=6805560b&hm=eb3aa38621a3bf70e612476a696755513cc8d85c9b2e2d8d1ba3b045f85113a9&"></div>
-            <div class=gallery-item data-category="porsche gallery"><img alt="" class=gallery-image src="https://cdn.discordapp.com/attachments/1360528122365087791/1360529504782782464/Screenshot_mmw_porsche_911_gt3_rs_992_wp_mxz_gallery_hall_26-1-125-12-48-53.png?ex=6806a817&is=68055697&hm=c8864ffb6de4df8068d10c97715050ded10b34ab516a5e2bc2d9586e36ce936f&"></div>
-            <div class=gallery-item data-category="porsche gallery"><img alt="" class=gallery-image src="https://cdn.discordapp.com/attachments/1360528122365087791/1360529520066564096/Screenshot_mmw_porsche_911_gt3_rs_992_wp_mxz_gallery_hall_26-1-125-12-56-30.png?ex=6806a81b&is=6805569b&hm=cab0a467dd2d3a938bf4726640fecde7230b2752af7ff8a4e4b13db3dca31fa7&"></div>
-            <div class=gallery-item data-category="porsche gallery"><img alt="" class=gallery-image src="https://cdn.discordapp.com/attachments/1360528122365087791/1360529541654777958/Screenshot_mmw_porsche_911_gt3_rs_992_wp_mxz_gallery_hall_26-1-125-12-56-12.png?ex=6806a820&is=680556a0&hm=4b129784e06b9bb7500522e08ae5c771b1a0963fdd029ebc419e578b6779d371&"></div>
-            <div class=gallery-item data-category="bmw"><img alt="" class=gallery-image src="https://cdn.discordapp.com/attachments/1360528122365087791/1360529632067194890/Screenshot_nohesi_bmw_m4_g82_adro_chris_shuto_revival_project_beta_7-3-125-13-57-50.png?ex=6806a835&is=680556b5&hm=51fdaad169d0ad9527a0ed15c82d90a4a8f5c1e0a73e1c63e9acf23997947a5d&"></div>
-            <div class=gallery-item data-category="bmw"><img alt="" class=gallery-image src="https://cdn.discordapp.com/attachments/1360528122365087791/1360529681920557209/Screenshot_nohesi_bmw_m4_g82_adro_chris_shuto_revival_project_beta_7-3-125-14-8-25.png?ex=6806a841&is=680556c1&hm=9425ca93da61e676ae7f7c1318ec8afc1b090c11a3a8980bbed10ffcb08832bc&"></div>
-            <div class=gallery-item data-category="bmw"><img alt="" class=gallery-image src="https://cdn.discordapp.com/attachments/1360528122365087791/1360529919125229688/Screenshot_prvvy_bmw_m5cs_2022_tuned_shuto_revival_project_beta_24-1-125-14-8-6.png?ex=6806a87a&is=680556fa&hm=37f28846432c2433685b82d3245ff0f43b8a4728a231afa114715793cb9d26d8&"></div>
-            <div class=gallery-item data-category="night"><img alt="" class=gallery-image src="https://cdn.discordapp.com/attachments/1360528122365087791/1360531005236318278/acs_2025-04-02_11-57-52.jpg?ex=6806a97d&is=680557fd&hm=b653f0de8be249c5253c870aefa36b788e23e9db84bc6e3d479901abb60db725&"></div>
-            <div class=gallery-item data-category="porsche"><img alt="" class=gallery-image src="https://cdn.discordapp.com/attachments/1360528122365087791/1361452697726881935/Screenshot_mby_porsche_964_turbo_dr_greece_14-3-125-21-39-35.png?ex=68060f61&is=6804bde1&hm=0b83b42b33ac0b7012b362a0e37645824070257aa4ff6c54fa8015e3015debce&"></div>
+            <div class=gallery-item data-category="night bmw"><img alt="" class=gallery-image src="https://previews.dropbox.com/p/thumb/ACnK56hMDp8EWj2Tu9pvwRRJhPV6zGjX82cPn6XpJbnuslmVbND_jtbNz5fzuYWHzAhBSR71S9_AHFg9zLv-crQr5QWuj4kHUtQ7CZF_fW-jtKv1O_RMKKVSSUKEUY_Bf_fV76SU1ovRl1xc7k089MntHz_4pykRnfBWNdUCRlX4GMqf8aRJQIxGbj7eFddGGbx2-dBFBpF2htjAQPh3HAO3XbzvJNsr5Ex0LMMOoJsDBGYBqCJzSBbFRf_RE6uWfCtPfYzzNbyJcDqwqeHl-jIUHEKvfM1l6tuwDvCCWJQO24KqYUnbL2qv5Tq_aB3hW3w/p.png"></div>
+            <div class=gallery-item data-category="porsche"><img alt="" class=gallery-image src="https://previews.dropbox.com/p/thumb/ACmRa8yIb2j4YbRh4sROm0FI7dFzGEgjNyw6d4mw2SAtte6ys3rDn49tdXvJU321BDnu2erLaFahAcPXhmhyEJs2-02aa2TAekNhYZEoiTlOFoLXDOd4QJ5xQ1eLKuiMJtOBGXYQOwGDOBydU4245MjFuwZ5afQ8b7vovG0UDgEhJyYUk7V5VgNcR9qL-EqjzlDIdmZ1Cb9jR4Z0gDz96INWOrKZUfGWV8u5D5jisC_uKubwX6DMICwXXWQqrlx2Jn-zSbRXkW557aIekyYwy1Tc6aIc1D5KGIFAgEaCJPsp7ELfSSiiLLzW1mmFenshPvc/p.png"></div>
+            <div class=gallery-item data-category="bmw"><img alt="" class=gallery-image src="https://previews.dropbox.com/p/thumb/ACnErm3-XkUa-KmOmsbegX252h1z372Rhzu4uam4mzuuKCPllRNzLhOxUMI2QQPrH1cdNbcyoUhIqkrus5IlsphTecq3VYJhJ0l6XRijKUVngae3rEhkQVfAnnMAUaWmQS1MBK8pbtMa277JI25SDHkM_Qm-d6WXYOdyHnWbtdWGS23P3O0vkU1EQZGB4zitG6ZsaDrYZlHlkfcTDoxNgJGTkXiBvjzQxnrUkyco_Nb_OjN4BWQBgi1u6vVtHBq7l4SHNKSbt7tlmFQvW8dPjgDI6UWRJYu3LbmHbwqYbh-dxnXAMjttnb_DuqtW5wvnP_Y/p.png"></div>
+            <div class=gallery-item data-category="bmw"><img alt="" class=gallery-image src="https://previews.dropbox.com/p/thumb/ACmqG22xXvsQV_LoUYuwnxxWcx56V_Xn40xCO77_HPzLu8FbGFi9yOkwBmNBKAaaaxfjDsl6oTaHAkv_VZMSRwYf6JM0FfKcQklkdaQzF2a7AUazDKXZS0zyDvVLIi7wLEsiAJqxTud6zQRQ77N_3CEfEdqU42h-U4HjxOGKBjp0FaGEda2zFMtlCxu-00lKreJp1vqzYU6SrW-HEszosjHj7TOkLIWHrH5alsagQ7JRsDCjpwlhbWjodsCaJWrOHUwMlIRWGbtMXL4zIEZ2uAOir94xrYDhueUj_Ax0zElsE_DW1aedVvaNpbP4n-4MBmQ/p.png"></div>
+            <div class=gallery-item data-category="bmw gallery"><img alt="" class=gallery-image src="https://previews.dropbox.com/p/thumb/ACn-hTrm7e2j-eBMRdBVNmTuWUxYldv9CfXbihQCpMhyIPPO4M8gQ70JpJDpT4sHmIs1uOAZ4oYIiBn-NcxFL3yNSSF9enBOkunh7dtz2ZagGMmw1kEYsssW6Wm2P54p6JhqgqpSVjzVxJX8qT0-oBgi25hRhIqY-ziNH_OMIsgFQgCKGbGEfto7upAqJqLnW1PmakkwrJhRdqnia2nN3S_IqBHTYPGC30UlvjdaAMT7DNajkhxabZE_cmt4unmJDH8hxbbX9ak-p6jvEK-sRR3PVuTGeS9z9OJmaydolNSbFavcVyw0CYcNE-li6e_svK0/p.jpeg"></div>
+            <div class=gallery-item data-category="bmw gallery"><img alt="" class=gallery-image src="https://previews.dropbox.com/p/thumb/ACk6cxawD6mcu1uGh533GEZ9P1XML9CkSX0Jp5nxcE39Yj-TOqjEbhZHHdYQURgQ8PDcjNypJBvNhRr-_wRNat9b_SXABaSlZ5SBuMuw2AVUUJjJIXIX-cndMiv7N1_OFh-07fNNfjjZE-egIt-DhvyxPYroMN4Ahfk2THWKmWdVoXM1Bs4-x5BAPfrTq0tQbNk16Rv9ARTZTwyX52KxGXz12YtIGgb4qQS-hKwm591fy6LIV0T9TXr8bT8g2EFTz7FQJCZnaBzspDE25woEDFx1LRROUk359nWDtZTfZES3h48zplkmORh3CJfSCrw0hwI/p.jpeg"></div>
+            <div class=gallery-item data-category="porsche gallery"><img alt="" class=gallery-image src="https://previews.dropbox.com/p/thumb/ACkBMQj5iOTMA-rzwFExDNNOpWIxiOZ7jCs7bWv_dG3DnqVdQfgE8kBGPZa64ClWvCfIGoIWvYfS8tuO-9IJKRuDRQD7rM2AIvckarWA3BWflObyC774xB8jtnKMZo9zQOJjBReghorsZojg3CU8MCioOd80ymwcUlvL17yUDAxXfGbMS6KbaWqJ2YG8G1_hg3NvK993zmZ_TFxf1-X6lSwIbV0Z9k33go7d4XddktrfnzK3A0IOjoufJM5Z-5sXfm_W4uhh6mGPIqpHc1wUJW_a4kfZ1d6FqZmiw4FvskcL840a5swzrN2tnzT97odo13Y/p.jpeg"></div>
+            <div class=gallery-item data-category="porsche gallery"><img alt="" class=gallery-image src="https://previews.dropbox.com/p/thumb/AClgD22UK9YtMnDXXQmt2JkrqSrVsVzElWL2H5hP1xfL_Nf3Zdzu0zkRfg1gHoNuKbCaXdTEE9HwL6rtvSDBeRBC3KLhEIGqcluGB4yu6zkFNnMKXxqr7kXjZTvl6A02-4apBK7--64nq6ZVMCZtoj4pi6wUKlStImkOSH2vvFtoo8xxBwnAvU9drDjsI78DRlU6rbvE_4Oy2kD1StuM5YkqXolEdkX6x1I4P7XYGWKfzfYK7q1Ubq4D7KBcF2S3zZjRg30XGfw4--2_egYBJGOzaF6m4tORplaJ7njG48eiKkijLPfoL1vdmohNoTmzBZ0/p.png"></div>
+            <div class=gallery-item data-category="porsche gallery"><img alt="" class=gallery-image src="https://previews.dropbox.com/p/thumb/ACk5HY5j2IXdGn3fqfY4J4rLmgqeCHlkXrII-xqMTzMe3NaFsHR3iRO2ADrt9TX5mBu3GjoYDzKACyay36AZQ2A2yMBM3TuAemXFrbG0qa6H8yI-Po4HzNP_l0pDzP7z5jNYrKWFPqP9t6n3IeRN0ISiE9-vKto8QAI-WixcIm7ayfyUiN9oWksFu1sA_P-KyJnkQmayS8uYI2qYobERfKQxa174gOF6LlA0VMoyXJCPY2yQF6fNB0NIn7oyIINl45cTeKwGXqye8uDtcB4WjiAk88urIj010DEjy7k5lfM_EbyGSn8JLK_4NeQM63y4thY/p.png"></div>
+            <div class=gallery-item data-category="bmw"><img alt="" class=gallery-image src="https://previews.dropbox.com/p/thumb/ACk5HY5j2IXdGn3fqfY4J4rLmgqeCHlkXrII-xqMTzMe3NaFsHR3iRO2ADrt9TX5mBu3GjoYDzKACyay36AZQ2A2yMBM3TuAemXFrbG0qa6H8yI-Po4HzNP_l0pDzP7z5jNYrKWFPqP9t6n3IeRN0ISiE9-vKto8QAI-WixcIm7ayfyUiN9oWksFu1sA_P-KyJnkQmayS8uYI2qYobERfKQxa174gOF6LlA0VMoyXJCPY2yQF6fNB0NIn7oyIINl45cTeKwGXqye8uDtcB4WjiAk88urIj010DEjy7k5lfM_EbyGSn8JLK_4NeQM63y4thY/p.png"></div>
+            <div class=gallery-item data-category="bmw"><img alt="" class=gallery-image src="https://previews.dropbox.com/p/thumb/ACk5HY5j2IXdGn3fqfY4J4rLmgqeCHlkXrII-xqMTzMe3NaFsHR3iRO2ADrt9TX5mBu3GjoYDzKACyay36AZQ2A2yMBM3TuAemXFrbG0qa6H8yI-Po4HzNP_l0pDzP7z5jNYrKWFPqP9t6n3IeRN0ISiE9-vKto8QAI-WixcIm7ayfyUiN9oWksFu1sA_P-KyJnkQmayS8uYI2qYobERfKQxa174gOF6LlA0VMoyXJCPY2yQF6fNB0NIn7oyIINl45cTeKwGXqye8uDtcB4WjiAk88urIj010DEjy7k5lfM_EbyGSn8JLK_4NeQM63y4thY/p.png"></div>
+            <div class=gallery-item data-category="bmw"><img alt="" class=gallery-image src="https://previews.dropbox.com/p/thumb/ACk5HY5j2IXdGn3fqfY4J4rLmgqeCHlkXrII-xqMTzMe3NaFsHR3iRO2ADrt9TX5mBu3GjoYDzKACyay36AZQ2A2yMBM3TuAemXFrbG0qa6H8yI-Po4HzNP_l0pDzP7z5jNYrKWFPqP9t6n3IeRN0ISiE9-vKto8QAI-WixcIm7ayfyUiN9oWksFu1sA_P-KyJnkQmayS8uYI2qYobERfKQxa174gOF6LlA0VMoyXJCPY2yQF6fNB0NIn7oyIINl45cTeKwGXqye8uDtcB4WjiAk88urIj010DEjy7k5lfM_EbyGSn8JLK_4NeQM63y4thY/p.png"></div>
+            <div class=gallery-item data-category="night"><img alt="" class=gallery-image src="https://previews.dropbox.com/p/thumb/ACk5HY5j2IXdGn3fqfY4J4rLmgqeCHlkXrII-xqMTzMe3NaFsHR3iRO2ADrt9TX5mBu3GjoYDzKACyay36AZQ2A2yMBM3TuAemXFrbG0qa6H8yI-Po4HzNP_l0pDzP7z5jNYrKWFPqP9t6n3IeRN0ISiE9-vKto8QAI-WixcIm7ayfyUiN9oWksFu1sA_P-KyJnkQmayS8uYI2qYobERfKQxa174gOF6LlA0VMoyXJCPY2yQF6fNB0NIn7oyIINl45cTeKwGXqye8uDtcB4WjiAk88urIj010DEjy7k5lfM_EbyGSn8JLK_4NeQM63y4thY/p.png"></div>
+            <div class=gallery-item data-category="porsche"><img alt="" class=gallery-image src="https://previews.dropbox.com/p/thumb/ACk5HY5j2IXdGn3fqfY4J4rLmgqeCHlkXrII-xqMTzMe3NaFsHR3iRO2ADrt9TX5mBu3GjoYDzKACyay36AZQ2A2yMBM3TuAemXFrbG0qa6H8yI-Po4HzNP_l0pDzP7z5jNYrKWFPqP9t6n3IeRN0ISiE9-vKto8QAI-WixcIm7ayfyUiN9oWksFu1sA_P-KyJnkQmayS8uYI2qYobERfKQxa174gOF6LlA0VMoyXJCPY2yQF6fNB0NIn7oyIINl45cTeKwGXqye8uDtcB4WjiAk88urIj010DEjy7k5lfM_EbyGSn8JLK_4NeQM63y4thY/p.png"></div>
         </div>
     </div>
 </section>
@@ -335,6 +742,113 @@ Didn't kill my fps, had good frame rate the entire time!</div>
         </div>
     </div>
 </section>
+<section class=section id=pricing>
+    <div class=container>
+        <div class=section-header>
+            <h2 class=section-title>Pricing Plans</h2>
+            <p>Choose the plan that best fits your needs and start enhancing your Assetto Corsa experience today.</p>
+        </div>
+        
+        <div class="pricing-container">
+            <!-- Supporter Tier -->
+            <div class="pricing-card animate-on-scroll">
+                <div class="pricing-header">
+                    <h3>Supporter</h3>
+                    <div class="pricing-price">
+                        <span class="price">$2.50</span>
+                        <span class="period">/ month</span>
+                    </div>
+                    <p>This tier supports me and my work</p>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li><i class="fas fa-check"></i> CSP & Video Settings</li>
+                        <li><i class="fas fa-check"></i> My Neck FX Settings</li>
+                        <li><i class="fas fa-check"></i> ReShade Presets</li>
+                        <li><i class="fas fa-check"></i> Discord access</li>
+                    </ul>
+                </div>
+                <div class="pricing-action">
+                    <a href="https://www.patreon.com/checkout/Exilitay?rid=24053942" class="btn btn-secondary btn-block">Upgrade</a>
+                </div>
+            </div>
+            
+            <!-- Supporter+ Tier -->
+            <div class="pricing-card animate-on-scroll">
+                <div class="pricing-header">
+                    <h3>Supporter +</h3>
+                    <div class="pricing-price">
+                        <span class="price">$5.00</span>
+                        <span class="period">/ month</span>
+                    </div>
+                    <p>This tier supports my ppfilter & visual work</p>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li><i class="fas fa-check"></i> Exilitay Realism v1.06 (ppfilter)</li>
+                        <li><i class="fas fa-check"></i> CSP & Video Settings</li>
+                        <li><i class="fas fa-check"></i> Discord access</li>
+                    </ul>
+                </div>
+                <div class="pricing-action">
+                    <a href="https://www.patreon.com/checkout/Exilitay?rid=22919876" class="btn btn-secondary btn-block">Upgrade</a>
+                </div>
+            </div>
+            
+            <!-- Swimmer Tier (Most Popular) -->
+            <div class="pricing-card popular animate-on-scroll">
+                <div class="popular-badge">Most Popular</div>
+                <div class="pricing-header">
+                    <h3>Swimmer</h3>
+                    <div class="pricing-price">
+                        <span class="price">$7.50</span>
+                        <span class="period">/ month</span>
+                    </div>
+                    <p>This tier supports my ppfilters and visual work more and gives you early access to WIP updates</p>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li><i class="fas fa-check"></i> My Graphics Pack, it includes:</li>
+                        <li><i class="fas fa-check"></i> Exilitay Realism v1.06 (ppfilter)</li>
+                        <li><i class="fas fa-check"></i> CSP & Video Settings</li>
+                        <li><i class="fas fa-check"></i> My New Neck FX Settings</li>
+                        <li><i class="fas fa-check"></i> Custom Chase Camera Mods</li>
+                        <li><i class="fas fa-check"></i> Photo Realistic ReShade Preset</li>
+                        <li><i class="fas fa-check"></i> My SRP Lights Configs</li>
+                        <li><i class="fas fa-check"></i> Discord access</li>
+                    </ul>
+                </div>
+                <div class="pricing-action">
+                    <a href="https://www.patreon.com/checkout/Exilitay?rid=22919993" class="btn btn-primary btn-block">Upgrade</a>
+                </div>
+            </div>
+            
+            <!-- Swimmer+ Tier -->
+            <div class="pricing-card animate-on-scroll">
+                <div class="pricing-header">
+                    <h3>Swimmer +</h3>
+                    <div class="pricing-price">
+                        <span class="price">$10.00</span>
+                        <span class="period">/ month</span>
+                    </div>
+                    <p>This tier supports me and my work the most!</p>
+                </div>
+                <div class="pricing-features">
+                    <ul>
+                        <li><i class="fas fa-check"></i> Everything from all tiers</li>
+                        <li><i class="fas fa-check"></i> Early access to all posts</li>
+                        <li><i class="fas fa-check"></i> Testing my ppfilter updates</li>
+                        <li><i class="fas fa-check"></i> Discord access</li>
+                    </ul>
+                    <p class="pricing-note">This tier is for people who would like to support me more or test out & get early access to my content</p>
+                </div>
+                <div class="pricing-action">
+                    <a href="https://www.patreon.com/checkout/Exilitay?rid=24053994" class="btn btn-secondary btn-block">Upgrade</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section class=section id=faq>
     <div class=container>
         <div class=section-header>
@@ -346,7 +860,7 @@ Didn't kill my fps, had good frame rate the entire time!</div>
                 <div class=faq-question><span>How do I install Exilitay Graphics?</span> <i class="fas fa-chevron-down"></i></div>
                 <div class=faq-answer>
                     <p> Installation is quick and easy!
-Simply drag the ‘EXTENSION’ and ‘SYSTEM’ folders into your Assetto Corsa root directory:
+Simply drag the 'EXTENSION' and 'SYSTEM' folders into your Assetto Corsa root directory:
 C:\Program Files (x86)\Steam\steamapps\common\assettocorsa
 
 Important: Do not install this through Content Manager — it will not work!
@@ -354,7 +868,7 @@ Note: Requires at least Pure version 2.38.
                 </div>
             </div>
             <div class="glass-card faq-item">
-                <div class=faq-question><span>Will this work with VR?</span> <i class="fas fa-chevron-down"></i></div>
+                <div class=faq-question><span>Will this work with my VR Headset?</span> <i class="fas fa-chevron-down"></i></div>
                 <div class=faq-answer>
                     <p>Yes, Exilitay Graphics is compatible with VR but may require some optimization for best performance. We recommend starting with the "Medium" preset and gradually increasing settings as your hardware allows. Some effects like advanced DOF may need to be disabled for optimal VR performance.
                 </div>
@@ -405,6 +919,7 @@ Note: Requires at least Pure version 2.38.
                 <ul class=footer-links>
                     <li><a class=footer-link href=#features>Features</a>
                     <li><a class=footer-link href=#gallery>Gallery</a>
+                    <li><a class=footer-link href=#pricing>Pricing</a>
                     <li><a class=footer-link href=#requirements>Requirements</a>
                     <li><a class=footer-link href=#faq>FAQ</a>
                 </ul>
@@ -437,6 +952,32 @@ Note: Requires at least Pure version 2.38.
 </footer>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('active');
+            // Change icon based on menu state
+            const icon = menuToggle.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.className = 'fas fa-times';
+            } else {
+                icon.className = 'fas fa-bars';
+            }
+        });
+        
+        // Close mobile menu when clicking a nav link
+        const navLinksItems = document.querySelectorAll('.nav-link');
+        navLinksItems.forEach(link => {
+            link.addEventListener('click', function() {
+                if (window.innerWidth <= 768) {
+                    navLinks.classList.remove('active');
+                    menuToggle.querySelector('i').className = 'fas fa-bars';
+                }
+            });
+        });
+        
         // Theme toggle functionality
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
@@ -470,8 +1011,16 @@ Note: Requires at least Pure version 2.38.
         let currentTheme = calculateSettingAsThemeString({ localStorageTheme, systemSettingDark });
         updateTheme(currentTheme);
         
-        // Theme toggle event
+        // Theme toggle event with animation
         themeToggle.addEventListener('click', function() {
+            // Add spinning animation
+            themeToggle.classList.add('spinning');
+            
+            // Remove class after animation completes
+            setTimeout(() => {
+                themeToggle.classList.remove('spinning');
+            }, 500);
+            
             const newTheme = currentTheme === "dark" ? "light" : "dark";
             localStorage.setItem("theme", newTheme);
             updateTheme(newTheme);
